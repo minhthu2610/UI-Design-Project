@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Giảng Viên | E-Learning Platform</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon" style="width: 34px; height: 34px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 18px;">Giáo Viên<span>.</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Dashboard tổng quan
+        </a>
+        <a href="courses.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Quản lý khóa học
+        </a>
+        <a href="resources.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <polyline points="12 11 12 17 15 14"></polyline>
+          </svg>
+          Thư viện tài nguyên
+        </a>
+        <a href="students.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          Quản lý học viên
+        </a>
+        <a href="analytics.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Báo cáo thống kê
+        </a>
+        <a href="payouts.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          Nhận thanh toán
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../common/auth.html" class="btn btn-secondary btn-sm" style="width: 100%;">Đăng xuất</a>
+      </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="dashboard-main">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="dashboard-topbar">
+        <nav class="breadcrumb-nav">
+          <a href="../../index.html">Hub điều hướng</a>
+          <span class="separator">/</span>
+          <span class="current">Giáo viên Dashboard</span>
+        </nav>
+        <div class="topbar-actions">
+          <span class="badge badge-primary" style="font-size: 12px; background: #CCFBF1; color: #0D9488;">👨‍🏫 Giảng viên</span>
+          <a href="../../index.html" class="btn btn-outline btn-sm">Về Hub Portal</a>
+        </div>
+      </header>
+
+      <!-- Top Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+        <div>
+          <span class="badge badge-primary">Phân hệ Giảng viên: 3.3.1.3</span>
+          <h1 class="h2" style="margin-top: 6px;">Bảng Điều Khiển Giảng Dạy</h1>
+          <p class="body-2" style="color: var(--text-secondary);">Xin chào Nguyễn Văn An, chúc bạn có ngày làm việc hiệu
+            quả!</p>
+        </div>
+      </div>
+
+      <!-- 4 KPI CARDS -->
+      <div class="grid-12" style="margin-bottom: 32px;">
+
+        <!-- KPI 1 -->
+        <div class="col-3">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Tổng doanh thu</h4>
+              <div class="kpi-value">128.45M</div>
+              <div class="kpi-trend positive">
+                <span>↑ +18.4%</span> vs tháng trước
+              </div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: var(--primary-light); color: var(--primary);">
+              💰
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI 2 -->
+        <div class="col-3">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Doanh thu tháng này</h4>
+              <div class="kpi-value">24.60M</div>
+              <div class="kpi-trend positive">
+                <span>↑ +8.2%</span> trong 30 ngày
+              </div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: #ECFDF5; color: #10B981;">
+              📈
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI 3 -->
+        <div class="col-3">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Tổng số học viên</h4>
+              <div class="kpi-value">1,480</div>
+              <div class="kpi-trend positive">
+                <span>+64 học viên mới</span>
+              </div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: #FFFBEB; color: #F59E0B;">
+              👥
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI 4 -->
+        <div class="col-3">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Điểm đánh giá TB</h4>
+              <div class="kpi-value">4.92 ★</div>
+              <div class="caption" style="color: var(--text-secondary); margin-top: 4px;">
+                Dựa trên 640 nhận xét
+              </div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: #EEF2FF; color: #434CE8;">
+              ⭐
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CHARTS SECTION -->
+      <div class="grid-12" style="margin-bottom: 32px;">
+        <!-- Line Chart: Revenue Evolution -->
+        <div class="col-8">
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div>
+                <h3 class="h3">Biến động Doanh thu Giảng dạy (VNĐ)</h3>
+                <span class="caption">Cập nhật thời gian thực theo từng tháng</span>
+              </div>
+              <select class="form-control" style="width: 140px; height: 36px; font-size: 13px;"
+                onchange="updateRevenueChart(this.value)">
+                <option value="year">Năm nay</option>
+                <option value="month">Tháng này</option>
+                <option value="week">7 ngày qua</option>
+              </select>
+            </div>
+            <div id="teacher-revenue-chart"></div>
+          </div>
+        </div>
+
+        <!-- Bar Chart: Rating Distribution -->
+        <div class="col-4">
+          <div class="card">
+            <h3 class="h3" style="margin-bottom: 6px;">Phân bổ Đánh giá Sao</h3>
+            <span class="caption" style="display: block; margin-bottom: 24px;">Chất lượng nhận xét toàn bộ khóa
+              học</span>
+            <div id="teacher-rating-distribution"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RECENT COURSES TABLE -->
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <h3 class="h3">Khóa học đang phụ trách</h3>
+            <span class="caption">Quản lý nội dung, kiểm duyệt và số lượng học viên</span>
+          </div>
+          <a href="courses.html" class="btn btn-outline btn-sm">Xem tất cả khóa học →</a>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Khóa học</th>
+                <th>Danh mục</th>
+                <th>Giá bán</th>
+                <th>Số học viên</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Xây dựng Web hiện đại toàn diện với HTML5, CSS3 và Vanilla JS</strong>
+                </td>
+                <td><span class="badge badge-primary">Lập trình & CNTT</span></td>
+                <td><strong>699.000 đ</strong></td>
+                <td>840 học viên</td>
+                <td><span class="badge badge-success">Đã xuất bản</span></td>
+                <td>
+                  <a href="curriculum.html?id=c-101" class="btn btn-outline btn-sm">Đề cương</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Lập trình TypeScript & Next.js chuyên sâu</strong>
+                </td>
+                <td><span class="badge badge-primary">Lập trình & CNTT</span></td>
+                <td><strong>950.000 đ</strong></td>
+                <td>0 học viên</td>
+                <td><span class="badge badge-warning">Chờ duyệt (UC15)</span></td>
+                <td>
+                  <a href="course-create.html" class="btn btn-secondary btn-sm">Chỉnh sửa</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Kiến trúc Microservices với Node.js & Docker</strong>
+                </td>
+                <td><span class="badge badge-primary">Lập trình & CNTT</span></td>
+                <td><strong>1.200.000 đ</strong></td>
+                <td>0 học viên</td>
+                <td><span class="badge badge-secondary">Bản nháp</span></td>
+                <td>
+                  <a href="curriculum.html?id=c-103" class="btn btn-primary btn-sm">Thêm video</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../../assets/js/charts.js"></script>
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Render Teacher Line Chart
+      Charts.renderLineChart('teacher-revenue-chart', {
+        data: [14, 18, 16, 22, 26, 24, 28, 32, 30, 36, 42, 48],
+        labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
+        color: '#434CE8',
+        fillColor: 'rgba(67, 76, 232, 0.08)'
+      });
+
+      // Render Rating Distribution
+      Charts.renderBarChart('teacher-rating-distribution', {
+        data: [
+          { label: '5 ★', value: 88, color: '#10B981' },
+          { label: '4 ★', value: 9, color: '#434CE8' },
+          { label: '3 ★', value: 2, color: '#F59E0B' },
+          { label: '2 ★', value: 1, color: '#F97316' },
+          { label: '1 ★', value: 0, color: '#EF4444' }
+        ]
+      });
+    });
+
+    function updateRevenueChart(filter) {
+      showToast(`Đã lọc dữ liệu theo: ${filter}`, 'info');
+    }
+  </script>
+</body>
+
+</html>

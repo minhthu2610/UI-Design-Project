@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng & Thanh toán (UC4) | E-Learning</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <style>
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-thumb {
+      width: 120px;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .payment-option {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .payment-option.selected {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .payment-option input[type="radio"] {
+      accent-color: var(--primary);
+      width: 18px;
+      height: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="safe-container header-inner">
+      <div class="header-left">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="logo-text">E-Learning<span>.</span></span>
+        </a>
+      </div>
+      <div class="header-actions">
+        <span class="caption">Bảo mật thanh toán 256-bit SSL</span>
+        <a href="courses.html" class="btn btn-secondary btn-sm">Tiếp tục chọn khóa học</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main style="padding: 40px 0 80px;">
+    <div class="safe-container">
+
+      <div style="margin-bottom: 28px;">
+        <h1 class="h2" style="margin-top: 8px;">Giỏ hàng & Thủ tục Thanh toán</h1>
+      </div>
+
+      <div class="grid-12">
+        <!-- LEFT: CART LIST & PAYMENT METHOD -->
+        <div class="col-8">
+
+          <!-- Card: Items in Cart -->
+          <div class="card" style="margin-bottom: 24px;">
+            <h3 class="h3" style="margin-bottom: 16px;">Khóa học đã chọn (2)</h3>
+
+            <div id="cart-items-container">
+              <!-- Item 1 -->
+              <div class="cart-item" id="item-1">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80"
+                  class="cart-thumb">
+                <div style="flex: 1;">
+                  <h4 style="font-size: 15px; margin-bottom: 4px;">Xây dựng Web hiện đại toàn diện với HTML5, CSS3 và
+                    Vanilla JS</h4>
+                  <div class="caption">Giảng viên: ThS. Nguyễn Văn An • 32 giờ học</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-weight: 800; font-size: 16px; color: var(--text-heading);">699.000 đ</div>
+                  <div style="font-size: 12px; text-decoration: line-through; color: var(--text-muted);">1.200.000 đ
+                  </div>
+                  <button class="btn btn-secondary btn-sm" style="margin-top: 6px; padding: 2px 8px; font-size: 11px;"
+                    onclick="removeItem('item-1', 699000)">Xóa</button>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="cart-item" id="item-2">
+                <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&auto=format&fit=crop&q=80"
+                  class="cart-thumb">
+                <div style="flex: 1;">
+                  <h4 style="font-size: 15px; margin-bottom: 4px;">Thiết kế giao diện UI/UX chuyên nghiệp chuẩn Figma và
+                    Design System</h4>
+                  <div class="caption">Giảng viên: Trần Thị Mai Phương • 28 giờ học</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-weight: 800; font-size: 16px; color: var(--text-heading);">849.000 đ</div>
+                  <div style="font-size: 12px; text-decoration: line-through; color: var(--text-muted);">1.500.000 đ
+                  </div>
+                  <button class="btn btn-secondary btn-sm" style="margin-top: 6px; padding: 2px 8px; font-size: 11px;"
+                    onclick="removeItem('item-2', 849000)">Xóa</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Payment Method Selection -->
+          <div class="card">
+            <h3 class="h3" style="margin-bottom: 16px;">Chọn phương thức thanh toán</h3>
+
+            <label class="payment-option selected" onclick="selectPayment(this)">
+              <input type="radio" name="payment-method" checked>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 14px; color: var(--text-heading);">Ví điện tử MoMo / VNPay
+                  (Khuyên dùng)</div>
+                <div class="caption">Quét mã QR qua app ngân hàng hoặc ví điện tử tức thời</div>
+              </div>
+              <span class="badge badge-success">Nhanh & Tiện lợi</span>
+            </label>
+
+            <label class="payment-option" onclick="selectPayment(this)">
+              <input type="radio" name="payment-method">
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 14px; color: var(--text-heading);">Thẻ ATM nội địa (Internet
+                  Banking Napas)</div>
+                <div class="caption">Hỗ trợ tất cả ngân hàng tại Việt Nam (Vietcombank, Techcombank,...)</div>
+              </div>
+            </label>
+
+            <label class="payment-option" onclick="selectPayment(this)">
+              <input type="radio" name="payment-method">
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 14px; color: var(--text-heading);">Thẻ Quốc Tế Visa /
+                  Mastercard / JCB</div>
+                <div class="caption">Thanh toán an toàn bảo mật chuẩn 3D-Secure quốc tế</div>
+              </div>
+            </label>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: ORDER SUMMARY & COUPON -->
+        <div class="col-4">
+          <aside class="card" style="position: sticky; top: 100px;">
+            <h3 class="h3" style="margin-bottom: 20px;">Tóm tắt đơn hàng</h3>
+
+            <!-- Coupon Input Block -->
+            <div style="margin-bottom: 24px;">
+              <label class="form-label" style="font-size: 13px;">Mã khuyến mãi / Coupon</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="text" id="coupon-input" class="form-control" placeholder="Nhập mã (VD: CHAOMUNG2026)"
+                  style="text-transform: uppercase;">
+                <button class="btn btn-secondary btn-sm" onclick="applyCoupon()">Áp dụng</button>
+              </div>
+              <!-- Error feedback compliant with UC4 -->
+              <div id="coupon-error" class="form-feedback-error" style="display: none;">
+                ✕ Mã khuyến mãi không hợp lệ hoặc đã hết hạn!
+              </div>
+              <div id="coupon-success"
+                style="color: var(--status-success); font-size: 12px; font-weight: 600; margin-top: 6px; display: none;">
+                ✓ Đã áp dụng mã ưu đãi giảm 20%!
+              </div>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 12px;">
+              <span style="color: var(--text-secondary);">Tạm tính:</span>
+              <span id="subtotal-val" style="font-weight: 600;">1.548.000 đ</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 16px;">
+              <span style="color: var(--text-secondary);">Chiết khấu Voucher:</span>
+              <span id="discount-val" style="color: var(--status-danger); font-weight: 700;">- 0 đ</span>
+            </div>
+
+            <div
+              style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 16px; border-top: 1px solid var(--border-color); margin-bottom: 24px;">
+              <span style="font-size: 16px; font-weight: 700; color: var(--text-heading);">Tổng thanh toán:</span>
+              <span id="total-val" style="font-size: 26px; font-weight: 800; color: var(--primary);">1.548.000 đ</span>
+            </div>
+
+            <button class="btn btn-primary btn-lg" style="width: 100%;" onclick="confirmPayment()">
+              Xác nhận thanh toán
+            </button>
+
+            <div class="caption" style="text-align: center; margin-top: 16px; color: var(--text-muted);">
+              Bằng việc bấm xác nhận, bạn đồng ý với Điều khoản sử dụng và Chính sách bảo mật E-Learning.
+            </div>
+          </aside>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SUCCESS MODAL POPUP -->
+  <div class="modal-overlay" id="payment-success-modal">
+    <div class="modal-container" style="text-align: center; padding: 40px 30px;">
+      <div
+        style="width: 70px; height: 70px; background: var(--status-success-bg); color: var(--status-success); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 32px;">
+        ✓
+      </div>
+      <h3 class="h2" style="margin-bottom: 10px;">Thanh toán Thành công!</h3>
+      <p class="body-1" style="color: var(--text-secondary); margin-bottom: 24px;">
+        Hệ thống đã gửi hóa đơn điện tử về email của bạn. Khóa học đã được tự động thêm vào hồ sơ học tập.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center;">
+        <a href="learning-space.html" class="btn btn-primary">Bắt đầu học ngay →</a>
+        <a href="my-learning.html" class="btn btn-secondary">Khóa học của tôi</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    let subtotal = 1548000;
+    let discount = 0;
+
+    function selectPayment(el) {
+      document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+      el.classList.add('selected');
+      el.querySelector('input[type="radio"]').checked = true;
+    }
+
+    function removeItem(itemId, price) {
+      document.getElementById(itemId)?.remove();
+      subtotal -= price;
+      if (subtotal < 0) subtotal = 0;
+      updateSummary();
+      showToast('Đã xóa khóa học khỏi giỏ hàng', 'info');
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+      const err = document.getElementById('coupon-error');
+      const succ = document.getElementById('coupon-success');
+
+      if (code === 'CHAOMUNG2026') {
+        discount = Math.round(subtotal * 0.20);
+        err.style.display = 'none';
+        succ.style.display = 'block';
+        showToast('Áp dụng mã CHAOMUNG2026 thành công: Giảm 20%!', 'success');
+      } else {
+        discount = 0;
+        err.style.display = 'block';
+        succ.style.display = 'none';
+        showToast('Mã khuyến mãi không hợp lệ!', 'error');
+      }
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const finalTotal = Math.max(0, subtotal - discount);
+      document.getElementById('subtotal-val').innerText = subtotal.toLocaleString('vi-VN') + ' đ';
+      document.getElementById('discount-val').innerText = '- ' + discount.toLocaleString('vi-VN') + ' đ';
+      document.getElementById('total-val').innerText = finalTotal.toLocaleString('vi-VN') + ' đ';
+    }
+
+    function confirmPayment() {
+      showToast('Đang kết nối cổng thanh toán an toàn...', 'info');
+      setTimeout(() => {
+        openModal('payment-success-modal');
+      }, 1000);
+    }
+  </script>
+</body>
+
+</html>

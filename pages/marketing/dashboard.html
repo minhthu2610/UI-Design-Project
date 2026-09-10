@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Marketing | E-Learning Platform</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon" style="width: 34px; height: 34px; background: #E11D48;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 18px;">Marketing<span>.</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Dashboard Marketing
+        </a>
+        <a href="promotions.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+          </svg>
+          Mã giảm giá & KM
+        </a>
+        <a href="campaign-reports.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Thống kê Marketing
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../common/auth.html" class="btn btn-secondary btn-sm" style="width: 100%;">Đăng xuất</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="dashboard-topbar">
+        <nav class="breadcrumb-nav">
+          <a href="../../index.html">Hub điều hướng</a>
+          <span class="separator">/</span>
+          <span class="current">Marketing Dashboard</span>
+        </nav>
+        <div class="topbar-actions">
+          <span class="badge badge-primary" style="font-size: 12px; background: #FFE4E6; color: #E11D48;">📢 Marketing</span>
+          <a href="../../index.html" class="btn btn-outline btn-sm">Về Hub Portal</a>
+        </div>
+      </header>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+        <div>
+          <h1 class="h2" style="margin-top: 6px;">Tổng Quan Chiến Dịch Tiếp Thị</h1>
+          <p class="body-2" style="color: var(--text-secondary);">Giám sát hiệu quả chương trình khuyến mại, lượt sử
+            dụng coupon và doanh thu kích cầu</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <a href="promotions.html" class="btn btn-primary">
+            + Tạo chiến dịch Voucher
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 MARKETING KPI CARDS COMPLIANT WITH 3.3.1.5 -->
+      <div class="grid-12" style="margin-bottom: 32px;">
+
+        <!-- Card 1: Active Campaigns -->
+        <div class="col-4">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Chiến dịch đang chạy</h4>
+              <div class="kpi-value" style="color: var(--status-success);">02 chiến dịch</div>
+              <div class="caption" style="margin-top: 6px; color: var(--text-secondary);">
+                CHAOMUNG2026 & SUMMERSALE
+              </div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: #ECFDF5; color: #10B981;">
+              🔥
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Total Coupon Used -->
+        <div class="col-4">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Lượt mã đã sử dụng</h4>
+              <div class="kpi-value">3,040 lượt</div>
+              <div class="kpi-trend positive">
+                <span>↑ +34.5%</span> tỷ lệ chuyển đổi
+              </div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: var(--primary-light); color: var(--primary);">
+              🎟️
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Stimulated Revenue -->
+        <div class="col-4">
+          <div class="card"
+            style="padding: 22px 24px; box-shadow: var(--shadow-card); display: flex; align-items: center; justify-content: space-between;">
+            <div class="kpi-info">
+              <h4 style="font-size: var(--fs-body2); color: var(--text-secondary); margin-bottom: 6px;">Doanh thu kích
+                cầu</h4>
+              <div class="kpi-value" style="color: var(--text-heading);">439.5 Triệu</div>
+              <div class="caption" style="margin-top: 6px; color: var(--status-success);">
+                Doanh thu thu về từ các mã khuyến mãi
+              </div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: #FFFBEB; color: #F59E0B;">
+              💵
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PERFORMANCE CHART -->
+      <div class="card" style="margin-bottom: 32px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <h3 class="h3">Xu Hướng Sử Dụng Mã Giảm Giá Qua Các Kênh</h3>
+            <span class="caption">Lượt kích hoạt coupon từ Facebook, Google Ads, Email Marketing và Organic</span>
+          </div>
+          <span class="badge badge-primary">Dữ liệu 30 ngày gần nhất</span>
+        </div>
+        <div id="marketing-trend-chart"></div>
+      </div>
+
+      <!-- ACTIVE PROMOTIONS PREVIEW TABLE -->
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <div
+          style="padding: 20px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+          <h3 class="h3">Chương trình khuyến mãi tiêu biểu</h3>
+          <a href="promotions.html" class="btn btn-outline btn-sm">Quản lý tất cả mã →</a>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Tên Chương Trình</th>
+                <th>Mã Code</th>
+                <th>Mức Giảm</th>
+                <th>Thời Hạn Áp Dụng</th>
+                <th>Lượt Đã Dùng</th>
+                <th>Trạng Thái</th>
+                <th>Thao Tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Ưu đãi thành viên mới</strong></td>
+                <td><code>CHAOMUNG2026</code></td>
+                <td><strong style="color: var(--status-danger);">-20%</strong></td>
+                <td>01/01/2026 - 31/12/2026</td>
+                <td>1,420 lượt</td>
+                <td><span class="badge badge-success">Đang chạy</span></td>
+                <td>
+                  <a href="promotions.html" class="btn btn-secondary btn-sm">Chỉnh sửa</a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Chiến dịch Khởi động Mùa hè</strong></td>
+                <td><code>SUMMERSALE</code></td>
+                <td><strong style="color: var(--status-danger);">-35%</strong></td>
+                <td>01/06/2026 - 15/07/2026</td>
+                <td>890 lượt</td>
+                <td><span class="badge badge-success">Đang chạy</span></td>
+                <td>
+                  <a href="promotions.html" class="btn btn-secondary btn-sm">Chỉnh sửa</a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Giảm giá chớp nhoáng 24h</strong></td>
+                <td><code>FLASHSALE</code></td>
+                <td><strong style="color: var(--status-danger);">-15%</strong></td>
+                <td>10/09/2026 - 20/09/2026</td>
+                <td>210 lượt</td>
+                <td><span class="badge badge-warning">Tạm ngưng</span></td>
+                <td>
+                  <a href="promotions.html" class="btn btn-outline btn-sm">Kích hoạt lại</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../../assets/js/charts.js"></script>
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Charts.renderLineChart('marketing-trend-chart', {
+        data: [120, 180, 150, 240, 210, 310, 420, 380, 490, 440, 520, 610],
+        labels: ['Tuần 1', 'Tuần 2', 'Tuần 3', 'Tuần 4', 'Tuần 5', 'Tuần 6', 'Tuần 7', 'Tuần 8', 'Tuần 9', 'Tuần 10', 'Tuần 11', 'Tuần 12'],
+        color: '#E11D48',
+        fillColor: 'rgba(225, 29, 72, 0.06)'
+      });
+    });
+  </script>
+</body>
+
+</html>

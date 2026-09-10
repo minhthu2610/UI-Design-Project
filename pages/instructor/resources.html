@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thư Viện Tài Nguyên Tập Trung | Giáo Viên</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <style>
+    .storage-bar-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-2xl);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .file-icon-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .icon-video { background: #EEF2FF; color: #434CE8; }
+    .icon-pdf { background: #FEF2F2; color: #EF4444; }
+    .icon-zip { background: #FFFBEB; color: #F59E0B; }
+    .icon-code { background: #ECFDF5; color: #10B981; }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR GIÁO VIÊN (ĐÃ ĐỔI TỪ ĐỀ CƯƠNG SANG THƯ VIỆN TÀI NGUYÊN) -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon" style="width: 34px; height: 34px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 18px;">Giáo Viên<span>.</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Dashboard tổng quan
+        </a>
+        <a href="courses.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Quản lý khóa học
+        </a>
+        <a href="resources.html" class="sidebar-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <polyline points="12 11 12 17 15 14"></polyline>
+          </svg>
+          Thư viện tài nguyên
+        </a>
+        <a href="students.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          Quản lý học viên
+        </a>
+        <a href="analytics.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Báo cáo thống kê
+        </a>
+        <a href="payouts.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          Nhận thanh toán
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../../index.html" class="btn btn-outline btn-sm" style="width: 100%;">Cổng Portal Hub</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="dashboard-topbar">
+        <nav class="breadcrumb-nav">
+          <a href="../../index.html">Hub điều hướng</a>
+          <span class="separator">/</span>
+          <a href="dashboard.html">Giáo viên</a>
+          <span class="separator">/</span>
+          <span class="current">Thư viện tài nguyên tập trung</span>
+        </nav>
+        <div class="topbar-actions">
+          <span class="badge badge-primary" style="font-size: 12px; background: #CCFBF1; color: #0D9488;">👨‍🏫 Giảng viên</span>
+          <a href="courses.html" class="btn btn-outline btn-sm">Quản lý khóa học</a>
+        </div>
+      </header>
+
+      <!-- PAGE TITLE -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h1 class="h2" style="margin-top: 6px;">Thư Viện Tài Nguyên Tập Trung</h1>
+          <p class="body-2" style="color: var(--text-secondary);">
+            Quản lý toàn bộ tệp video bài giảng, tệp tài liệu PDF và mã nguồn đã tải lên thuộc tất cả các khóa học
+          </p>
+        </div>
+        <button class="btn btn-primary" onclick="showUploadModal()">
+          + Tải lên tệp mới
+        </button>
+      </div>
+
+      <!-- STORAGE KPI CARDS -->
+      <div class="grid-12" style="margin-bottom: 24px;">
+        <!-- Card 1: Used Storage -->
+        <div class="col-3">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Dung lượng lưu trữ</h4>
+              <div class="kpi-value" style="color: var(--primary);">14.8 GB</div>
+              <div class="caption">Hạn mức khả dụng: 50 GB (Đã dùng 29.6%)</div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: var(--primary-light); color: var(--primary);">💾</div>
+          </div>
+        </div>
+
+        <!-- Card 2: Total Files -->
+        <div class="col-3">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Tổng số tệp</h4>
+              <div class="kpi-value">38 tệp</div>
+              <div class="caption">Đã phân loại chi tiết</div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: #F1F5F9; color: #475569;">📁</div>
+          </div>
+        </div>
+
+        <!-- Card 3: Video Files -->
+        <div class="col-3">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Video bài giảng</h4>
+              <div class="kpi-value" style="color: #2563EB;">22 tệp</div>
+              <div class="caption">Định dạng MP4/WebM chuẩn HLS</div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: #EFF6FF; color: #2563EB;">🎥</div>
+          </div>
+        </div>
+
+        <!-- Card 4: Documents & Codes -->
+        <div class="col-3">
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <h4>Tài liệu & Code</h4>
+              <div class="kpi-value" style="color: #10B981;">16 tệp</div>
+              <div class="caption">PDF, Word, ZIP, Source Code</div>
+            </div>
+            <div class="kpi-icon-wrap" style="background: #ECFDF5; color: #10B981;">📄</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILTER CONTROLS BAR -->
+      <div class="card" style="margin-bottom: 24px; padding: 16px 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          
+          <!-- Filter type tabs -->
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-primary btn-sm" onclick="filterType('all', this)" id="btn-type-all">Tất cả (38)</button>
+            <button class="btn btn-secondary btn-sm" onclick="filterType('video', this)">🎥 Video bài giảng (22)</button>
+            <button class="btn btn-secondary btn-sm" onclick="filterType('pdf', this)">📄 Tài liệu PDF (10)</button>
+            <button class="btn btn-secondary btn-sm" onclick="filterType('archive', this)">📦 Mã nguồn & ZIP (6)</button>
+          </div>
+
+          <!-- Filter course dropdown & Search input -->
+          <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <select class="form-control" style="width: 280px; height: 38px; font-size: 13px;" id="filter-course-select" onchange="applyFilters()">
+              <option value="all" selected>Tất cả khóa học đang dùng</option>
+              <option value="c-101">Xây dựng Web hiện đại với HTML5/CSS3/JS</option>
+              <option value="c-102">Thiết kế UI/UX chuẩn Figma & Design System</option>
+              <option value="c-103">Kiến trúc Microservices với NestJS và Kafka</option>
+              <option value="unused">Tệp chưa gắn vào bài học (Tài nguyên tự do)</option>
+            </select>
+
+            <div style="width: 240px;">
+              <input type="text" class="form-control" style="height: 38px; font-size: 13px;" id="search-filename-input" placeholder="Tìm tên tệp..." oninput="applyFilters()">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RESOURCE FILES TABLE -->
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width: 44px;"></th>
+                <th>Tên Tệp Tài Nguyên</th>
+                <th>Loại Tệp</th>
+                <th>Khóa Học Sử Dụng</th>
+                <th>Bài Học Liên Quan</th>
+                <th>Dung Lượng</th>
+                <th>Ngày Tải Lên</th>
+                <th style="width: 160px;">Thao Tác</th>
+              </tr>
+            </thead>
+            <tbody id="resource-table-body">
+              <tr data-type="video" data-course="c-101">
+                <td><div class="file-icon-badge icon-video">🎥</div></td>
+                <td>
+                  <strong style="color: var(--text-heading);">video_01_html5_basics.mp4</strong>
+                  <div class="caption">HLS Adaptive Stream • 1080p • 60fps</div>
+                </td>
+                <td><span class="badge badge-primary">Video MP4</span></td>
+                <td><a href="course-detail.html?id=c-101" style="color: var(--primary); text-decoration: none; font-weight: 600;">HTML5 & Vanilla JS</a></td>
+                <td>Bài 1.1: Giới thiệu HTML5</td>
+                <td><strong>180.5 MB</strong></td>
+                <td>01/09/2026</td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn btn-outline btn-sm" onclick="previewResource('video_01_html5_basics.mp4')">Xem</button>
+                    <button class="btn btn-secondary btn-sm" onclick="downloadFile('video_01_html5_basics.mp4')">Tải</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteResource(this)">Xóa</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr data-type="pdf" data-course="c-101">
+                <td><div class="file-icon-badge icon-pdf">📄</div></td>
+                <td>
+                  <strong style="color: var(--text-heading);">dac_ta_giao_dien_che_do_hoc.pdf</strong>
+                  <div class="caption">Định dạng Adobe PDF Document</div>
+                </td>
+                <td><span class="badge badge-danger">Tài liệu PDF</span></td>
+                <td><a href="course-detail.html?id=c-101" style="color: var(--primary); text-decoration: none; font-weight: 600;">HTML5 & Vanilla JS</a></td>
+                <td>Bài 1.1: Giới thiệu HTML5</td>
+                <td><strong>12.4 MB</strong></td>
+                <td>02/09/2026</td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn btn-outline btn-sm" onclick="previewResource('dac_ta_giao_dien_che_do_hoc.pdf')">Xem</button>
+                    <button class="btn btn-secondary btn-sm" onclick="downloadFile('dac_ta_giao_dien_che_do_hoc.pdf')">Tải</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteResource(this)">Xóa</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr data-type="video" data-course="c-102">
+                <td><div class="file-icon-badge icon-video">🎥</div></td>
+                <td>
+                  <strong style="color: var(--text-heading);">figma_design_system_tokens.mp4</strong>
+                  <div class="caption">HLS Adaptive Stream • 1080p</div>
+                </td>
+                <td><span class="badge badge-primary">Video MP4</span></td>
+                <td><a href="course-detail.html?id=c-102" style="color: var(--primary); text-decoration: none; font-weight: 600;">UI/UX Chuẩn Figma</a></td>
+                <td>Bài 2.1: Design Tokens</td>
+                <td><strong>340.0 MB</strong></td>
+                <td>03/09/2026</td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn btn-outline btn-sm" onclick="previewResource('figma_design_system_tokens.mp4')">Xem</button>
+                    <button class="btn btn-secondary btn-sm" onclick="downloadFile('figma_design_system_tokens.mp4')">Tải</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteResource(this)">Xóa</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr data-type="archive" data-course="c-103">
+                <td><div class="file-icon-badge icon-code">📦</div></td>
+                <td>
+                  <strong style="color: var(--text-heading);">nest_kafka_microservices_starter.zip</strong>
+                  <div class="caption">Mã nguồn bài tập thực hành NestJS</div>
+                </td>
+                <td><span class="badge badge-success">Source Code ZIP</span></td>
+                <td><a href="course-detail.html?id=c-103" style="color: var(--primary); text-decoration: none; font-weight: 600;">NestJS & Kafka Microservices</a></td>
+                <td>Bài 2.1: Cấu hình Kafka Topic</td>
+                <td><strong>45.2 MB</strong></td>
+                <td>05/09/2026</td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn btn-secondary btn-sm" onclick="downloadFile('nest_kafka_microservices_starter.zip')">Tải</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteResource(this)">Xóa</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr data-type="video" data-course="c-103">
+                <td><div class="file-icon-badge icon-video">🎥</div></td>
+                <td>
+                  <strong style="color: var(--text-heading);">kafka_cqrs_pattern_explained.mp4</strong>
+                  <div class="caption">HLS Adaptive Stream • 1080p</div>
+                </td>
+                <td><span class="badge badge-primary">Video MP4</span></td>
+                <td><a href="course-detail.html?id=c-103" style="color: var(--primary); text-decoration: none; font-weight: 600;">NestJS & Kafka Microservices</a></td>
+                <td>Bài 2.1: Cấu hình Kafka Topic</td>
+                <td><strong>520.8 MB</strong></td>
+                <td>06/09/2026</td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn btn-outline btn-sm" onclick="previewResource('kafka_cqrs_pattern_explained.mp4')">Xem</button>
+                    <button class="btn btn-secondary btn-sm" onclick="downloadFile('kafka_cqrs_pattern_explained.mp4')">Tải</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteResource(this)">Xóa</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr data-type="pdf" data-course="unused">
+                <td><div class="file-icon-badge icon-pdf">📄</div></td>
+                <td>
+                  <strong style="color: var(--text-heading);">quy_truan_code_clean_architecture.pdf</strong>
+                  <div class="caption">Tài liệu tham khảo tự do</div>
+                </td>
+                <td><span class="badge badge-danger">Tài liệu PDF</span></td>
+                <td><span class="badge badge-secondary">Tệp tự do (Chưa gắn)</span></td>
+                <td>--</td>
+                <td><strong>8.6 MB</strong></td>
+                <td>07/09/2026</td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn btn-outline btn-sm" onclick="previewResource('quy_truan_code_clean_architecture.pdf')">Xem</button>
+                    <button class="btn btn-secondary btn-sm" onclick="downloadFile('quy_truan_code_clean_architecture.pdf')">Tải</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteResource(this)">Xóa</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- PAGINATION CONTAINER -->
+        <div class="pagination-container">
+          <div class="pagination-info">
+            Hiển thị <strong>1 - 6</strong> trên tổng số <strong>38</strong> tệp tài nguyên
+          </div>
+          <ul class="pagination">
+            <li class="page-item disabled"><button class="page-link">‹ Trước</button></li>
+            <li class="page-item active"><button class="page-link">1</button></li>
+            <li class="page-item"><button class="page-link">2</button></li>
+            <li class="page-item"><button class="page-link">3</button></li>
+            <li class="page-item"><button class="page-link">Sau ›</button></li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- UPLOAD MODAL -->
+  <div class="modal-overlay" id="upload-modal">
+    <div class="modal-container" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 class="h3">Tải lên tệp tài nguyên mới vào kho</h3>
+        <button class="btn btn-secondary btn-sm" data-modal-close>✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Chọn khóa học áp dụng (Tùy chọn)</label>
+          <select class="form-control">
+            <option value="">Tài nguyên tự do (Chưa gắn khóa học)</option>
+            <option value="c-101">Xây dựng Web hiện đại toàn diện với HTML5/CSS3/JS</option>
+            <option value="c-102">Thiết kế giao diện UI/UX chuẩn Figma</option>
+            <option value="c-103">Kiến trúc Microservices với NestJS và Kafka</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Chọn tệp từ máy tính (Video MP4, PDF, ZIP, Code)</label>
+          <input type="file" class="form-control">
+        </div>
+        <div class="caption">Hỗ trợ các định dạng .mp4, .webm, .pdf, .zip, .rar. Dung lượng video tối đa 4GB/tệp, tệp tài liệu tối đa 50MB.</div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-modal-close>Hủy</button>
+        <button class="btn btn-primary" onclick="closeModal('upload-modal'); showToast('Đã tải lên tệp tài nguyên mới thành công vào kho!', 'success');">Tải lên ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    let activeType = 'all';
+
+    function filterType(type, btn) {
+      document.querySelectorAll('.card button').forEach(b => {
+        if (b.id && b.id.startsWith('btn-type-')) {
+          b.classList.remove('btn-primary');
+          b.classList.add('btn-secondary');
+        }
+      });
+      btn.classList.remove('btn-secondary');
+      btn.classList.add('btn-primary');
+      activeType = type;
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const courseFilter = document.getElementById('filter-course-select').value;
+      const searchVal = document.getElementById('search-filename-input').value.toLowerCase().trim();
+      const rows = document.querySelectorAll('#resource-table-body tr');
+
+      rows.forEach(row => {
+        const rowType = row.getAttribute('data-type');
+        const rowCourse = row.getAttribute('data-course');
+        const fileName = row.querySelector('strong').innerText.toLowerCase();
+
+        const matchType = activeType === 'all' || rowType === activeType;
+        const matchCourse = courseFilter === 'all' || rowCourse === courseFilter;
+        const matchSearch = !searchVal || fileName.includes(searchVal);
+
+        if (matchType && matchCourse && matchSearch) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    function showUploadModal() {
+      openModal('upload-modal');
+    }
+
+    function previewResource(filename) {
+      showToast(`Đang xem trước tệp tài nguyên: ${filename}`, 'info');
+    }
+
+    function downloadFile(filename) {
+      showToast(`Đang tải về tệp: ${filename}`, 'success');
+    }
+
+    function deleteResource(btn) {
+      if (confirm('Bạn có chắc chắn muốn xóa tệp tài nguyên này khỏi kho lưu trữ?')) {
+        btn.closest('tr').remove();
+        showToast('Đã xóa tệp tài nguyên khỏi hệ thống!', 'info');
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chứng chỉ Tốt nghiệp (UC8) | E-Learning</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <style>
+    .cert-frame {
+      background: #FFFFFF;
+      border: 12px solid #1E1B4B;
+      outline: 2px solid #C7D2FE;
+      border-radius: var(--radius-2xl);
+      padding: 60px 50px;
+      max-width: 900px;
+      margin: 0 auto 30px;
+      box-shadow: var(--shadow-modal);
+      text-align: center;
+      position: relative;
+    }
+
+    .cert-seal {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      margin: 0 auto;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    }
+  </style>
+</head>
+
+<body style="background-color: var(--bg-canvas);">
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="safe-container header-inner">
+      <div class="header-left">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="logo-text">E-Learning<span>.</span></span>
+        </a>
+      </div>
+      <div class="header-actions">
+        <a href="my-learning.html" class="btn btn-secondary btn-sm">← Quay lại Khóa học của tôi</a>
+        <button class="btn btn-primary btn-sm" onclick="downloadCertificate()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Tải xuống PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 40px 20px 80px;">
+    <div class="safe-container">
+
+      <div style="text-align: center; margin-bottom: 24px;">
+        <span class="badge badge-success">Chứng chỉ số được xác thực</span>
+        <h1 class="h2" style="margin-top: 6px;">Chứng Chỉ Hoàn Thành Khóa Học</h1>
+        <p class="caption">Mã xác thực trực tuyến: <strong>CERT-2026-ELN-8849</strong></p>
+      </div>
+
+      <!-- CERTIFICATE PDF CANVAS SIMULATION -->
+      <div class="cert-frame" id="certificate-print-area">
+        <div
+          style="font-size: 13px; font-weight: 800; letter-spacing: 0.15em; color: var(--primary); text-transform: uppercase; margin-bottom: 16px;">
+          HỆ THỐNG ĐÀO TẠO TRỰC TUYẾN E-LEARNING
+        </div>
+
+        <h2
+          style="font-size: 36px; font-weight: 800; color: #0F172A; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">
+          CHỨNG NHẬN TỐT NGHIỆP
+        </h2>
+
+        <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 20px;">
+          Chứng nhận này được trân trọng trao cho học viên
+        </p>
+
+        <div
+          style="font-size: 32px; font-weight: 800; color: var(--primary); font-family: serif; border-bottom: 2px solid var(--border-color); display: inline-block; padding: 0 40px 10px; margin-bottom: 24px;">
+          NGUYỄN VĂN A
+        </div>
+
+        <p style="font-size: 15px; color: var(--text-body); max-width: 600px; margin: 0 auto 28px; line-height: 26px;">
+          Đã hoàn thành xuất sắc 100% nội dung và các bài kiểm tra thực hành của khóa học:<br>
+          <strong style="color: #0F172A; font-size: 18px;">Thiết kế giao diện UI/UX chuyên nghiệp chuẩn Figma và Design
+            System</strong>
+        </p>
+
+        <!-- Seal & Signatures -->
+        <div
+          style="display: flex; justify-content: space-between; align-items: flex-end; max-width: 700px; margin: 40px auto 0;">
+          <div style="text-align: center; width: 180px;">
+            <div style="font-family: cursive; font-size: 20px; color: #1E1B4B; margin-bottom: 4px;">TranMaiPhuong</div>
+            <div style="height: 1px; background: #0F172A; margin-bottom: 6px;"></div>
+            <strong style="font-size: 13px; color: #0F172A;">Trần Thị Mai Phương</strong>
+            <div class="caption">Giảng viên phụ trách</div>
+          </div>
+
+          <div class="cert-seal">
+            <span>OFFICIAL</span>
+            <span>★ VERIFIED ★</span>
+            <span>2026</span>
+          </div>
+
+          <div style="text-align: center; width: 180px;">
+            <div style="font-family: cursive; font-size: 20px; color: #1E1B4B; margin-bottom: 4px;">NguyenVanAn</div>
+            <div style="height: 1px; background: #0F172A; margin-bottom: 6px;"></div>
+            <strong style="font-size: 13px; color: #0F172A;">Hội đồng Học thuật</strong>
+            <div class="caption">E-Learning Director</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="btn btn-primary" onclick="downloadCertificate()">Tải xuống chứng chỉ PDF</button>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    function downloadCertificate() {
+      showToast('Đang kết xuất tệp tin PDF chuẩn in ấn...', 'info');
+      setTimeout(() => {
+        window.print();
+      }, 600);
+    }
+  </script>
+</body>
+
+</html>

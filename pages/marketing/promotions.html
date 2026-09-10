@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý Mã Giảm Giá & Khuyến Mãi (UC17) | Marketing</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon" style="width: 34px; height: 34px; background: #E11D48;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 18px;">Marketing<span>.</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Dashboard Marketing
+        </a>
+        <a href="promotions.html" class="sidebar-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+          </svg>
+          Mã giảm giá & KM
+        </a>
+        <a href="campaign-reports.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Thống kê Marketing
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="../common/auth.html" class="btn btn-secondary btn-sm" style="width: 100%;">Đăng xuất</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="dashboard-topbar">
+        <nav class="breadcrumb-nav">
+          <a href="../../index.html">Hub điều hướng</a>
+          <span class="separator">/</span>
+          <a href="dashboard.html">Marketing</a>
+          <span class="separator">/</span>
+          <span class="current">Mã giảm giá & Khuyến mãi</span>
+        </nav>
+        <div class="topbar-actions">
+          <span class="badge badge-primary" style="font-size: 12px; background: #FFE4E6; color: #E11D48;">📢 Marketing</span>
+          <a href="../../index.html" class="btn btn-outline btn-sm">Về Hub Portal</a>
+        </div>
+      </header>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+        <div>
+          <h1 class="h2" style="margin-top: 6px;">Quản Lý Mã Giảm Giá & Khuyến Mãi</h1>
+          <p class="body-2" style="color: var(--text-secondary);">Khởi tạo mã coupon kích cầu, thiết lập thời hạn hiệu
+            lực và phạm vi áp dụng khóa học</p>
+        </div>
+        <button class="btn btn-primary" onclick="openModal('create-promo-modal')">
+          + Khởi tạo chương trình mới
+        </button>
+      </div>
+
+      <!-- PROMOTIONS TABLE -->
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Tên Chương Trình</th>
+                <th>Mã Code Áp Dụng</th>
+                <th>Mức Ưu Đãi</th>
+                <th>Thời Gian Áp Dụng</th>
+                <th>Phạm Vi Khóa Học</th>
+                <th>Trạng Thái</th>
+                <th style="width: 220px;">Thao Tác Nhanh</th>
+              </tr>
+            </thead>
+            <tbody id="promo-table-body">
+              <tr id="promo-1">
+                <td><strong>Ưu đãi thành viên mới</strong></td>
+                <td><code>CHAOMUNG2026</code></td>
+                <td><strong style="color: var(--status-danger);">-20%</strong></td>
+                <td>01/01/2026 - 31/12/2026</td>
+                <td>Tất cả khóa học</td>
+                <td><span class="badge badge-success">Đang chạy</span></td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn btn-secondary btn-sm" onclick="pausePromo('promo-1')">Tạm ngưng</button>
+                    <button class="btn btn-danger btn-sm" onclick="endPromo('promo-1')">Kết thúc</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr id="promo-2">
+                <td><strong>Chiến dịch Khởi động Mùa hè</strong></td>
+                <td><code>SUMMERSALE</code></td>
+                <td><strong style="color: var(--status-danger);">-35%</strong></td>
+                <td>01/06/2026 - 15/07/2026</td>
+                <td>Danh mục Lập trình & CNTT</td>
+                <td><span class="badge badge-success">Đang chạy</span></td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn btn-secondary btn-sm" onclick="pausePromo('promo-2')">Tạm ngưng</button>
+                    <button class="btn btn-danger btn-sm" onclick="endPromo('promo-2')">Kết thúc</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr id="promo-3">
+                <td><strong>Giảm giá chớp nhoáng 24h</strong></td>
+                <td><code>FLASHSALE</code></td>
+                <td><strong style="color: var(--status-danger);">-15%</strong></td>
+                <td>10/09/2026 - 20/09/2026</td>
+                <td>Khóa học chọn lọc</td>
+                <td><span class="badge badge-warning">Tạm ngưng</span></td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn btn-outline btn-sm" onclick="resumePromo('promo-3')">Kích hoạt lại</button>
+                    <button class="btn btn-danger btn-sm" onclick="endPromo('promo-3')">Kết thúc</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr id="promo-4">
+                <td><strong>Đặc quyền Lập trình viên VIP</strong></td>
+                <td><code>VIPDEV50</code></td>
+                <td><strong style="color: var(--status-danger);">-50%</strong></td>
+                <td>01/01/2026 - 01/05/2026</td>
+                <td>Toàn sàn</td>
+                <td><span class="badge badge-secondary">Đã kết thúc</span></td>
+                <td>
+                  <span class="caption">Hết hạn</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- PAGINATION CONTAINER -->
+        <div class="pagination-container">
+          <div class="pagination-info">
+            Hiển thị <strong>1 - 4</strong> trên tổng số <strong>4</strong> mã khuyến mãi
+          </div>
+          <ul class="pagination">
+            <li class="page-item disabled"><button class="page-link">‹ Trước</button></li>
+            <li class="page-item active"><button class="page-link">1</button></li>
+            <li class="page-item disabled"><button class="page-link">Sau ›</button></li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODAL: CREATE NEW PROMOTION (UC17) -->
+  <div class="modal-overlay" id="create-promo-modal">
+    <div class="modal-container" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 class="h3">Khởi Tạo Chương Trình Khuyến Mãi Mới</h3>
+        <button class="btn btn-secondary btn-sm" data-modal-close>✕</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="form-create-promo" onsubmit="handleCreatePromo(event)">
+
+          <div class="grid-12">
+            <div class="col-7">
+              <div class="form-group">
+                <label class="form-label">Tên chương trình <span class="required">*</span></label>
+                <input type="text" id="promo-name" class="form-control"
+                  placeholder="Ví dụ: Ngày hội Lập trình viên 2026" required>
+              </div>
+            </div>
+            <div class="col-5">
+              <div class="form-group">
+                <label class="form-label">Mã Coupon <span class="required">*</span></label>
+                <input type="text" id="promo-code" class="form-control" placeholder="DEVDAY2026"
+                  style="text-transform: uppercase;" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-12">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Hình thức khuyến mãi</label>
+                <select class="form-control" id="promo-type">
+                  <option value="percent">Giảm giá theo phần trăm (%)</option>
+                  <option value="fixed">Giảm trừ trực tiếp số tiền cố định</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Mức ưu đãi (%) <span class="required">*</span></label>
+                <input type="number" id="promo-discount" class="form-control" min="1" max="100" placeholder="Ví dụ: 25"
+                  required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scope Selection -->
+          <div class="form-group">
+            <label class="form-label">Khóa học áp dụng chương trình <span class="required">*</span></label>
+            <select class="form-control" id="promo-scope">
+              <option value="all">Tất cả các khóa học trên toàn hệ thống</option>
+              <option value="cat-dev">Áp dụng theo danh mục: Lập trình & CNTT</option>
+              <option value="cat-dsg">Áp dụng theo danh mục: Thiết kế Đồ họa & UI/UX</option>
+              <option value="custom">Chỉ định từng khóa học cụ thể</option>
+            </select>
+          </div>
+
+          <!-- Dates validation rule compliant with UC17 -->
+          <div class="grid-12">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Ngày bắt đầu hiệu lực <span class="required">*</span></label>
+                <input type="date" id="promo-start-date" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Ngày kết thúc <span class="required">*</span></label>
+                <input type="date" id="promo-end-date" class="form-control" required>
+                <!-- Error feedback for date rule compliant with UC17 -->
+                <div id="date-error" class="form-feedback-error" style="display: none;">
+                  ✕ Lỗi: Ngày kết thúc không thể trước ngày bắt đầu!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px;">
+            <button type="button" class="btn btn-secondary" data-modal-close>Hủy</button>
+            <button type="submit" class="btn btn-primary">Kích hoạt chương trình</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set default dates
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('promo-start-date').value = today;
+      document.getElementById('promo-end-date').value = '2026-10-31';
+    });
+
+    function handleCreatePromo(e) {
+      e.preventDefault();
+      const name = document.getElementById('promo-name').value.trim();
+      const code = document.getElementById('promo-code').value.trim().toUpperCase();
+      const discount = document.getElementById('promo-discount').value;
+      const startDate = document.getElementById('promo-start-date').value;
+      const endDate = document.getElementById('promo-end-date').value;
+      const dateErr = document.getElementById('date-error');
+
+      // Check date validation rule (UC17)
+      if (new Date(endDate) < new Date(startDate)) {
+        dateErr.style.display = 'block';
+        showToast('Lỗi nghiệp vụ UC17: Ngày kết thúc không thể trước ngày bắt đầu!', 'error');
+        return;
+      }
+      dateErr.style.display = 'none';
+
+      // Append to table
+      const tbody = document.getElementById('promo-table-body');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${name}</strong></td>
+        <td><code>${code}</code></td>
+        <td><strong style="color: var(--status-danger);">${discount}%</strong></td>
+        <td>${startDate} - ${endDate}</td>
+        <td>Toàn sàn</td>
+        <td><span class="badge badge-success">Đang chạy</span></td>
+        <td>
+          <div style="display: flex; gap: 6px;">
+            <button class="btn btn-secondary btn-sm" onclick="pausePromo(this)">Tạm ngưng</button>
+            <button class="btn btn-danger btn-sm" onclick="endPromo(this)">Kết thúc</button>
+          </div>
+        </td>
+      `;
+      tbody.insertBefore(tr, tbody.firstChild);
+
+      closeModal('create-promo-modal');
+      showToast(`Đã kích hoạt chương trình khuyến mãi "${name}" (${code}) thành công!`, 'success');
+    }
+
+    function pausePromo(rowId) {
+      const row = typeof rowId === 'string' ? document.getElementById(rowId) : rowId.closest('tr');
+      row.querySelector('span.badge').className = 'badge badge-warning';
+      row.querySelector('span.badge').innerText = 'Tạm ngưng';
+      showToast('Đã tạm ngưng chương trình khuyến mãi!', 'info');
+    }
+
+    function resumePromo(rowId) {
+      const row = typeof rowId === 'string' ? document.getElementById(rowId) : rowId.closest('tr');
+      row.querySelector('span.badge').className = 'badge badge-success';
+      row.querySelector('span.badge').innerText = 'Đang chạy';
+      showToast('Đã kích hoạt lại mã coupon!', 'success');
+    }
+
+    function endPromo(rowId) {
+      if (confirm('Bạn có chắc chắn muốn kết thúc chiến dịch khuyến mãi này?')) {
+        const row = typeof rowId === 'string' ? document.getElementById(rowId) : rowId.closest('tr');
+        row.querySelector('span.badge').className = 'badge badge-secondary';
+        row.querySelector('span.badge').innerText = 'Đã kết thúc';
+        showToast('Đã kết thúc chương trình khuyến mãi!', 'info');
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm Duyệt Khóa Học (UC15) | Admin</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon" style="width: 34px; height: 34px; background: #0F172A;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 18px;">Admin Hub<span>.</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Dashboard hệ thống
+        </a>
+        <a href="categories.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          Quản lý danh mục
+        </a>
+        <a href="course-approval.html" class="sidebar-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          Kiểm duyệt khóa học
+        </a>
+        <a href="system-reports.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Báo cáo hệ thống
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="../common/auth.html" class="btn btn-secondary btn-sm" style="width: 100%;">Đăng xuất</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="dashboard-topbar">
+        <nav class="breadcrumb-nav">
+          <a href="../../index.html">Hub điều hướng</a>
+          <span class="separator">/</span>
+          <a href="dashboard.html">Admin</a>
+          <span class="separator">/</span>
+          <span class="current">Kiểm duyệt khóa học</span>
+        </nav>
+        <div class="topbar-actions">
+          <span class="badge badge-primary" style="font-size: 12px; background: #F1F5F9; color: #475569;">⚙️ Admin</span>
+          <a href="../../index.html" class="btn btn-outline btn-sm">Về Hub Portal</a>
+        </div>
+      </header>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+        <div>
+          <h1 class="h2" style="margin-top: 6px;">Hàng Đợi Kiểm Duyệt Khóa Học</h1>
+          <p class="body-2" style="color: var(--text-secondary);">Rà soát chất lượng nội dung, xem trực tiếp video bài
+            giảng trước khi xuất bản ra trang chủ</p>
+        </div>
+      </div>
+
+      <!-- PENDING COURSES TABLE (UC15) -->
+      <div class="card" style="padding: 0; overflow: hidden; margin-bottom: 30px;">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Tên Khóa Học</th>
+                <th>Giáo Viên Gửi Yêu Cầu</th>
+                <th>Danh Mục</th>
+                <th>Ngày Gửi</th>
+                <th>Nội Dung Kiểm Tra</th>
+                <th>Trạng Thái</th>
+                <th style="width: 140px;">Thao Tác</th>
+              </tr>
+            </thead>
+            <tbody id="approval-queue-body">
+              <tr id="row-appr-1">
+                <td>
+                  <strong style="color: var(--text-heading);">Phát triển Ứng dụng Di động Flutter từ căn bản đến nâng
+                    cao</strong>
+                  <div class="caption">Học phí: 850.000 đ • 35 giờ học</div>
+                </td>
+                <td><strong>Nguyễn Đình Tuấn</strong></td>
+                <td><span class="badge badge-primary">Lập trình & CNTT</span></td>
+                <td>06/09/2026</td>
+                <td>42 video • 15 tệp tài liệu</td>
+                <td><span class="badge badge-warning">Chờ duyệt</span></td>
+                <td>
+                  <button class="btn btn-primary btn-sm"
+                    onclick="openApprovalModal('Phát triển Ứng dụng Di động Flutter', 'Nguyễn Đình Tuấn', 'row-appr-1')">
+                    Kiểm duyệt
+                  </button>
+                </td>
+              </tr>
+
+              <tr id="row-appr-2">
+                <td>
+                  <strong style="color: var(--text-heading);">Chiến lược Thương mại điện tử trên TikTok Shop &
+                    Shopee</strong>
+                  <div class="caption">Học phí: 499.000 đ • 18 giờ học</div>
+                </td>
+                <td><strong>Hoàng Kim Ngân</strong></td>
+                <td><span class="badge badge-primary">Kinh doanh & Marketing</span></td>
+                <td>07/09/2026</td>
+                <td>28 video • 8 tệp tài liệu</td>
+                <td><span class="badge badge-warning">Chờ duyệt</span></td>
+                <td>
+                  <button class="btn btn-primary btn-sm"
+                    onclick="openApprovalModal('Chiến lược Thương mại điện tử', 'Hoàng Kim Ngân', 'row-appr-2')">
+                    Kiểm duyệt
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- PAGINATION CONTAINER -->
+        <div class="pagination-container">
+          <div class="pagination-info">
+            Hiển thị <strong>1 - 2</strong> trên tổng số <strong>2</strong> yêu cầu chờ duyệt
+          </div>
+          <ul class="pagination">
+            <li class="page-item disabled"><button class="page-link">‹ Trước</button></li>
+            <li class="page-item active"><button class="page-link">1</button></li>
+            <li class="page-item disabled"><button class="page-link">Sau ›</button></li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODAL: DETAILED APPROVAL REVIEW (UC15) -->
+  <div class="modal-overlay" id="approval-detail-modal">
+    <div class="modal-container" style="max-width: 780px;">
+      <div class="modal-header">
+        <div>
+          <h3 class="h3" id="modal-appr-title">Kiểm duyệt khóa học</h3>
+          <div class="caption" id="modal-appr-instructor">Giảng viên: ...</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" data-modal-close>✕</button>
+      </div>
+
+      <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+
+        <!-- Tab navigation inside review -->
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="tab-appr-video">Xem thử Video Bài Giảng</button>
+          <button class="tab-btn" data-tab="tab-appr-curriculum">Cấu trúc Đề cương & Tài nguyên</button>
+        </div>
+
+        <!-- TAB 1: VIDEO PREVIEW -->
+        <div id="tab-appr-video" class="tab-content" style="display: block;">
+          <div
+            style="aspect-ratio: 16/9; background: #000; border-radius: var(--radius-xl); overflow: hidden; position: relative; margin-bottom: 16px; display: flex; align-items: center; justify-content: center;">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop&q=80"
+              style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+            <div style="position: absolute; text-align: center; color: #fff;">
+              <div
+                style="width: 56px; height: 56px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; cursor: pointer;">
+                ▶
+              </div>
+              <strong>Đang xem kiểm định: Bài 1.1 - Khởi tạo Project (Độ phân giải: 1080p Full HD)</strong>
+            </div>
+          </div>
+          <div class="caption" style="color: var(--status-success); font-weight: 600;">
+            ✓ Đạt chuẩn kỹ thuật: Âm thanh rõ nét (stereo), hình ảnh 1080p, không chứa nội dung vi phạm bản quyền.
+          </div>
+        </div>
+
+        <!-- TAB 2: CURRICULUM -->
+        <div id="tab-appr-curriculum" class="tab-content" style="display: none;">
+          <div style="font-size: 14px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="padding: 10px; background: var(--bg-canvas); border-radius: 8px;">
+              <strong>Phần 1: Kiến thức nền tảng (8 bài học)</strong>
+              <div class="caption">Đính kèm: slide_tong_quan.pdf, source_code_p1.zip</div>
+            </div>
+            <div style="padding: 10px; background: var(--bg-canvas); border-radius: 8px;">
+              <strong>Phần 2: Xây dựng dự án thực chiến (14 bài học)</strong>
+              <div class="caption">Đính kèm: bai_tap_thuc_hanh.pdf</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Decision buttons compliant with UC15 -->
+      <div class="modal-footer" style="justify-content: space-between;">
+        <button class="btn btn-danger" onclick="openRejectPopup()">
+          ✕ Từ chối & Nhập lý do
+        </button>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-secondary" data-modal-close>Đóng</button>
+          <button class="btn btn-success" onclick="approveCourse()">
+            ✓ Phê duyệt & Xuất bản
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP REJECT REASON (UC15) -->
+  <div class="modal-overlay" id="reject-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="h3" style="color: var(--status-danger);">Lý do từ chối kiểm duyệt (UC15)</h3>
+        <button class="btn btn-secondary btn-sm" data-modal-close>✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="body-2" style="margin-bottom: 12px;">Nhập lý do hoặc các nội dung yêu cầu giáo viên phải chỉnh sửa
+          lại:</p>
+        <textarea id="reject-reason-input" class="form-control" style="min-height: 120px;"
+          placeholder="Ví dụ: Âm thanh video bài 1.3 bị rè, thiếu tài liệu mã nguồn đính kèm..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-modal-close>Hủy</button>
+        <button class="btn btn-danger" onclick="confirmReject()">Gửi phản hồi cho Giáo viên</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    let activeRowId = '';
+
+    function openApprovalModal(title, instructor, rowId) {
+      activeRowId = rowId;
+      document.getElementById('modal-appr-title').innerText = `Kiểm duyệt: ${title}`;
+      document.getElementById('modal-appr-instructor').innerText = `Giáo viên gửi: ${instructor}`;
+      openModal('approval-detail-modal');
+    }
+
+    function approveCourse() {
+      closeModal('approval-detail-modal');
+      const row = document.getElementById(activeRowId);
+      if (row) {
+        row.querySelector('span.badge-warning').className = 'badge badge-success';
+        row.querySelector('span.badge-success').innerText = 'Đã xuất bản';
+        row.querySelector('button').style.display = 'none';
+      }
+      showToast('Phê duyệt thành công! Khóa học đã chuyển sang trạng thái "Đã xuất bản".', 'success');
+    }
+
+    function openRejectPopup() {
+      closeModal('approval-detail-modal');
+      openModal('reject-modal');
+    }
+
+    function confirmReject() {
+      const reason = document.getElementById('reject-reason-input').value.trim();
+      if (!reason) {
+        showToast('Vui lòng nhập lý do từ chối để gửi thông báo cho giáo viên!', 'error');
+        return;
+      }
+      closeModal('reject-modal');
+      const row = document.getElementById(activeRowId);
+      if (row) {
+        row.querySelector('span.badge-warning').className = 'badge badge-danger';
+        row.querySelector('span.badge-danger').innerText = 'Cần sửa đổi';
+        row.querySelector('button').innerText = 'Xem lại';
+      }
+      showToast('Đã từ chối và gửi thông báo yêu cầu chỉnh sửa cho giáo viên!', 'info');
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý Học viên (UC11) | Giáo Viên</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon" style="width: 34px; height: 34px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 18px;">Giáo Viên<span>.</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Dashboard tổng quan
+        </a>
+        <a href="courses.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Quản lý khóa học
+        </a>
+        <a href="resources.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <polyline points="12 11 12 17 15 14"></polyline>
+          </svg>
+          Thư viện tài nguyên
+        </a>
+        <a href="students.html" class="sidebar-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          Quản lý học viên
+        </a>
+        <a href="analytics.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Báo cáo thống kê
+        </a>
+        <a href="payouts.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          Nhận thanh toán
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="dashboard-topbar">
+        <nav class="breadcrumb-nav">
+          <a href="../../index.html">Hub điều hướng</a>
+          <span class="separator">/</span>
+          <a href="dashboard.html">Giáo viên</a>
+          <span class="separator">/</span>
+          <span class="current">Quản lý học viên</span>
+        </nav>
+        <div class="topbar-actions">
+          <span class="badge badge-primary" style="font-size: 12px; background: #CCFBF1; color: #0D9488;">👨‍🏫 Giảng viên</span>
+          <a href="../../index.html" class="btn btn-outline btn-sm">Về Hub Portal</a>
+        </div>
+      </header>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+        <div>
+          <h1 class="h2" style="margin-top: 6px;">Danh Sách Học Viên Đang Học</h1>
+          <p class="body-2" style="color: var(--text-secondary);">Theo dõi tiến trình học tập thời gian thực để hỗ trợ
+            học viên kịp thời</p>
+        </div>
+      </div>
+
+      <!-- FILTER & SEARCH BAR -->
+      <div class="card" style="margin-bottom: 24px; padding: 16px 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <!-- Course Selector -->
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <label class="caption" style="font-weight: 700; color: var(--text-heading);">Chọn khóa học:</label>
+            <select class="form-control" style="width: 380px; height: 40px; font-size: 13px;"
+              onchange="handleCourseChange(this.value)">
+              <option value="c-101" selected>Xây dựng Web hiện đại toàn diện với HTML5, CSS3 và Vanilla JS</option>
+              <option value="c-102">Thiết kế giao diện UI/UX chuyên nghiệp chuẩn Figma</option>
+              <option value="c-empty">Kiến trúc Microservices (Khóa mới - Chưa có học viên)</option>
+            </select>
+          </div>
+
+          <!-- Search student -->
+          <div style="width: 280px;">
+            <input type="text" id="student-search-input" class="form-control" style="height: 40px; font-size: 13px;"
+              placeholder="Tìm theo tên hoặc email..." oninput="searchStudents(this.value)">
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDENTS TABLE -->
+      <div class="card" style="padding: 0; overflow: hidden;" id="table-wrap">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Học viên</th>
+                <th>Email</th>
+                <th>Ngày tham gia</th>
+                <th>Tiến độ hoàn thành</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="student-table-body">
+              <!-- Injected by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- PAGINATION CONTAINER -->
+        <div class="pagination-container">
+          <div class="pagination-info">
+            Hiển thị <strong>1 - 10</strong> trên tổng số <strong>15</strong> học viên
+          </div>
+          <ul class="pagination">
+            <li class="page-item disabled"><button class="page-link">‹ Trước</button></li>
+            <li class="page-item active"><button class="page-link">1</button></li>
+            <li class="page-item"><button class="page-link">2</button></li>
+            <li class="page-item"><button class="page-link">Sau ›</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- EMPTY STATE (UC11) -->
+      <div id="empty-students-state" class="card" style="text-align: center; padding: 60px 20px; display: none;">
+        <div style="font-size: 48px; margin-bottom: 12px;">👥</div>
+        <h3 class="h3" style="margin-bottom: 8px;">Khóa học hiện tại chưa có học viên nào ghi danh</h3>
+        <p class="body-2" style="color: var(--text-secondary);">
+          Khóa học vừa được khởi tạo hoặc đang trong giai đoạn chuẩn bị phát hành.
+        </p>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODAL: STUDENT PROGRESS DETAILS (UC11) -->
+  <div class="modal-overlay" id="student-detail-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="h3" id="modal-student-name">Chi tiết tiến độ học tập</h3>
+        <button class="btn btn-secondary btn-sm" data-modal-close>✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: var(--bg-canvas); padding: 16px; border-radius: var(--radius-xl); margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
+            <span>Tiến độ toàn khóa:</span>
+            <strong style="color: var(--primary);" id="modal-student-percent">85%</strong>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="modal-student-fill" style="width: 85%;"></div>
+          </div>
+          <div class="caption" style="margin-top: 6px;" id="modal-student-lastactive">Truy cập lần cuối: 2 giờ trước
+            (Bài 2.2)</div>
+        </div>
+
+        <h4 style="font-size: 14px; margin-bottom: 12px;">Lịch sử bài giảng đã hoàn thành:</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+          <div
+            style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: #fff; border: 1px solid var(--border-color); border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--status-success); font-weight: 800;">✓</span>
+              <span>1.1 Giới thiệu kiến trúc nền tảng và tài liệu đặc tả</span>
+            </div>
+            <span class="caption">Xem đạt 100%</span>
+          </div>
+          <div
+            style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: #fff; border: 1px solid var(--border-color); border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--status-success); font-weight: 800;">✓</span>
+              <span>1.2 Thiết lập Design System (Màu sắc, Typography, Grid)</span>
+            </div>
+            <span class="caption">Xem đạt 92%</span>
+          </div>
+          <div
+            style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: #fff; border: 1px solid var(--border-color); border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--status-warning); font-weight: 800;">⏱</span>
+              <span>2.2 Xử lý tự động tính phần trăm hoàn thành</span>
+            </div>
+            <span class="caption">Đang xem dở (61%)</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-modal-close>Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderStudentList(mockData.students);
+    });
+
+    function renderStudentList(list) {
+      const tbody = document.getElementById('student-table-body');
+      tbody.innerHTML = list.map(st => `
+        <tr>
+          <td>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--primary-light); color: var(--primary); font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                ${st.name.charAt(0)}
+              </div>
+              <strong style="color: var(--text-heading);">${st.name}</strong>
+            </div>
+          </td>
+          <td>${st.email}</td>
+          <td>${st.date}</td>
+          <td style="width: 200px;">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px;">
+              <span>${st.progress}%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill ${st.progress === 100 ? 'success' : ''}" style="width: ${st.progress}%;"></div>
+            </div>
+          </td>
+          <td>
+            <span class="badge ${st.progress === 100 ? 'badge-success' : 'badge-primary'}">${st.status}</span>
+          </td>
+          <td>
+            <button class="btn btn-outline btn-sm" onclick="showStudentDetail('${st.name}', ${st.progress})">Chi tiết</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function handleCourseChange(val) {
+      if (val === 'c-empty') {
+        document.getElementById('table-wrap').style.display = 'none';
+        document.getElementById('empty-students-state').style.display = 'block';
+      } else {
+        document.getElementById('table-wrap').style.display = 'block';
+        document.getElementById('empty-students-state').style.display = 'none';
+        renderStudentList(mockData.students);
+      }
+    }
+
+    function searchStudents(val) {
+      const q = val.toLowerCase().trim();
+      const filtered = mockData.students.filter(st =>
+        st.name.toLowerCase().includes(q) || st.email.toLowerCase().includes(q)
+      );
+      renderStudentList(filtered);
+    }
+
+    function showStudentDetail(name, percent) {
+      document.getElementById('modal-student-name').innerText = `Học viên: ${name}`;
+      document.getElementById('modal-student-percent').innerText = `${percent}%`;
+      document.getElementById('modal-student-fill').style.width = `${percent}%`;
+      openModal('student-detail-modal');
+    }
+  </script>
+</body>
+
+</html>

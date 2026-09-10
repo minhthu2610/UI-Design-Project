@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Báo cáo Thống kê Khóa học (UC12) | Giáo Viên</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon" style="width: 34px; height: 34px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 18px;">Giáo Viên<span>.</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Dashboard tổng quan
+        </a>
+        <a href="courses.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Quản lý khóa học
+        </a>
+        <a href="resources.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <polyline points="12 11 12 17 15 14"></polyline>
+          </svg>
+          Thư viện tài nguyên
+        </a>
+        <a href="students.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          Quản lý học viên
+        </a>
+        <a href="analytics.html" class="sidebar-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Báo cáo thống kê
+        </a>
+        <a href="payouts.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          Nhận thanh toán
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="dashboard-topbar">
+        <nav class="breadcrumb-nav">
+          <a href="../../index.html">Hub điều hướng</a>
+          <span class="separator">/</span>
+          <a href="dashboard.html">Giáo viên</a>
+          <span class="separator">/</span>
+          <span class="current">Báo cáo thống kê</span>
+        </nav>
+        <div class="topbar-actions">
+          <span class="badge badge-primary" style="font-size: 12px; background: #CCFBF1; color: #0D9488;">👨‍🏫 Giảng viên</span>
+          <a href="../../index.html" class="btn btn-outline btn-sm">Về Hub Portal</a>
+        </div>
+      </header>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+        <div>
+          <h1 class="h2" style="margin-top: 6px;">Báo Cáo & Thống Kê Hiệu Quả</h1>
+          <p class="body-2" style="color: var(--text-secondary);">Phân tích doanh thu bán khóa học, tốc độ tăng trưởng
+            học viên và chất lượng giảng dạy</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-outline" onclick="exportData('csv')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Xuất file CSV
+          </button>
+          <button class="btn btn-primary" onclick="exportData('excel')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Xuất Báo cáo Excel
+          </button>
+        </div>
+      </div>
+
+      <!-- FILTER CONTROLS -->
+      <div class="card" style="margin-bottom: 24px; padding: 16px 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <label class="caption" style="font-weight: 700; color: var(--text-heading);">Khoảng thời gian:</label>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary btn-sm" onclick="changePeriod(this, '7days')">7 ngày qua</button>
+              <button class="btn btn-primary btn-sm" onclick="changePeriod(this, 'month')">Tháng này</button>
+              <button class="btn btn-secondary btn-sm" onclick="changePeriod(this, 'year')">Năm nay</button>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <label class="caption" style="font-weight: 700; color: var(--text-heading);">Lọc theo khóa học:</label>
+            <select class="form-control" style="width: 320px; height: 38px; font-size: 13px;"
+              onchange="filterCourseStats(this.value)">
+              <option value="all" selected>Tất cả các khóa học</option>
+              <option value="c-101">Xây dựng Web hiện đại toàn diện với HTML5/CSS3</option>
+              <option value="c-102">Thiết kế giao diện UI/UX chuyên nghiệp chuẩn Figma</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- REVENUE LINE CHART -->
+      <div class="card" style="margin-bottom: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <h3 class="h3">Xu Hướng Doanh Thu Bán Khóa Học (Triệu VNĐ)</h3>
+            <span class="caption">Biến động doanh thu theo từng mốc thời gian</span>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--primary);">24.600.000 đ</div>
+            <span class="caption" style="color: var(--status-success);">+14.2% so với kỳ trước</span>
+          </div>
+        </div>
+        <div id="analytics-revenue-chart"></div>
+      </div>
+
+      <!-- TWO COLUMNS: RATING ANALYSIS & ENROLLMENT STATS -->
+      <div class="grid-12">
+
+        <!-- Rating Analysis Card (UC12) -->
+        <div class="col-6">
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div>
+                <h3 class="h3">Phân Tích Đánh Giá Chất Lượng</h3>
+                <span class="caption">Điểm Rating trung bình & phân bổ các mức sao</span>
+              </div>
+              <span class="badge badge-warning">4.92 ★★★★★</span>
+            </div>
+
+            <div id="analytics-stars-bars" style="margin-bottom: 24px;"></div>
+
+            <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
+              <h4 style="font-size: 14px; margin-bottom: 12px;">Nhận xét gần nhất của học viên:</h4>
+              <div
+                style="font-size: 13px; background: var(--bg-canvas); padding: 12px; border-radius: 8px; margin-bottom: 8px;">
+                <strong style="color: var(--text-heading);">Thiên Phú:</strong> "Giảng viên phản hồi thắc mắc rất nhanh
+                và
+                nhiệt tình."
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Performance Breakdown -->
+        <div class="col-6">
+          <div class="card">
+            <h3 class="h3" style="margin-bottom: 6px;">Hiệu Quả Từng Khóa Học</h3>
+            <span class="caption" style="display: block; margin-bottom: 20px;">Doanh thu và số lượng đơn hàng chi
+              tiết</span>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Khóa học</th>
+                    <th>Đơn bán</th>
+                    <th>Doanh thu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Xây dựng Web hiện đại</strong></td>
+                    <td>148 đơn</td>
+                    <td><strong style="color: var(--primary);">18.200.000 đ</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Thiết kế UI/UX Figma</strong></td>
+                    <td>62 đơn</td>
+                    <td><strong style="color: var(--primary);">6.400.000 đ</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../../assets/js/charts.js"></script>
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCharts();
+    });
+
+    function renderCharts() {
+      Charts.renderLineChart('analytics-revenue-chart', {
+        data: [8, 12, 11, 15, 14, 18, 22, 20, 24, 21, 26, 28],
+        labels: ['Ngày 1-5', 'Ngày 6-10', 'Ngày 11-15', 'Ngày 16-20', 'Ngày 21-25', 'Ngày 26-30'],
+        color: '#434CE8',
+        fillColor: 'rgba(67, 76, 232, 0.08)'
+      });
+
+      Charts.renderBarChart('analytics-stars-bars', {
+        data: [
+          { label: '5 ★', value: 88, color: '#10B981' },
+          { label: '4 ★', value: 9, color: '#434CE8' },
+          { label: '3 ★', value: 2, color: '#F59E0B' },
+          { label: '2 ★', value: 1, color: '#F97316' },
+          { label: '1 ★', value: 0, color: '#EF4444' }
+        ]
+      });
+    }
+
+    function changePeriod(btn, p) {
+      document.querySelectorAll('.card button').forEach(b => {
+        b.classList.remove('btn-primary');
+        b.classList.add('btn-secondary');
+      });
+      btn.classList.remove('btn-secondary');
+      btn.classList.add('btn-primary');
+      showToast('Đang tổng hợp dữ liệu thống kê cho kỳ: ' + p, 'info');
+    }
+
+    function filterCourseStats(cid) {
+      showToast('Đã lọc báo cáo theo: ' + cid, 'info');
+    }
+
+    function exportData(type) {
+      showToast(`Đang kết xuất và tải tệp ${type.toUpperCase()} báo cáo thống kê...`, 'success');
+    }
+  </script>
+</body>
+
+</html>

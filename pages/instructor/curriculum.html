@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xây dựng Đề cương & Tải Video (UC10) | Giáo Viên</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <style>
+    .curriculum-builder-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-2xl);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .lesson-upload-box {
+      background: var(--bg-canvas);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .upload-progress-box {
+      background: var(--primary-light);
+      border: 1px solid rgba(67, 76, 232, 0.2);
+      border-radius: var(--radius-xl);
+      padding: 14px 18px;
+      margin-top: 12px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon" style="width: 34px; height: 34px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 18px;">Giáo Viên<span>.</span></span>
+        </a>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Dashboard tổng quan
+        </a>
+        <a href="courses.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Quản lý khóa học
+        </a>
+        <a href="resources.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <polyline points="12 11 12 17 15 14"></polyline>
+          </svg>
+          Thư viện tài nguyên
+        </a>
+        <a href="students.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          Quản lý học viên
+        </a>
+        <a href="analytics.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Báo cáo thống kê
+        </a>
+        <a href="payouts.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          Nhận thanh toán
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="dashboard-topbar">
+        <nav class="breadcrumb-nav">
+          <a href="../../index.html">Hub điều hướng</a>
+          <span class="separator">/</span>
+          <a href="dashboard.html">Giáo viên</a>
+          <span class="separator">/</span>
+          <a href="courses.html">Quản lý khóa học</a>
+          <span class="separator">/</span>
+          <a href="course-detail.html?id=c-101">Chi tiết khóa học</a>
+          <span class="separator">/</span>
+          <span class="current">Đề cương & Video</span>
+        </nav>
+        <div class="topbar-actions">
+          <span class="badge badge-primary" style="font-size: 12px; background: #CCFBF1; color: #0D9488;">👨‍🏫 Giảng viên</span>
+          <a href="course-detail.html?id=c-101" class="btn btn-outline btn-sm" id="btn-back-detail">← Về Chi tiết khóa học</a>
+        </div>
+      </header>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+        <div>
+          <span class="badge badge-primary">Chức năng Giáo viên (UC10)</span>
+          <h1 class="h2" style="margin-top: 6px;">Xây Dựng Đề Cương & Tải Lên Video</h1>
+          <p class="body-2" style="color: var(--text-secondary);">Khóa học hiện tại: <strong id="course-title-display">Xây dựng Web hiện đại toàn diện với HTML5, CSS3 và Vanilla JS (ID: C-101)</strong></p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-secondary" onclick="addNewSection()">+ Thêm chương mới</button>
+          <button class="btn btn-primary" onclick="submitCurriculumToApproval()">Lưu & Gửi duyệt</button>
+        </div>
+      </div>
+
+      <!-- Video Upload Progress HUD simulation -->
+      <div id="upload-progress-hud" class="upload-progress-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <strong style="color: var(--primary);" id="upload-file-name">Đang tải lên: video_bai_giang_2.2.mp4 (450
+            MB)</strong>
+          <span class="badge badge-warning" id="encoding-badge">Đang chuyển mã HLS Adaptive (720p, 1080p)...</span>
+        </div>
+        <div class="progress-bar" style="background: rgba(67, 76, 232, 0.2);">
+          <div class="progress-fill" id="upload-fill" style="width: 75%;"></div>
+        </div>
+        <div
+          style="display: flex; justify-content: space-between; font-size: 11px; margin-top: 4px; color: var(--text-secondary);">
+          <span>Tốc độ: 12.5 MB/s</span>
+          <span id="upload-percent-text">Đã tải: 75% • Còn lại khoảng 15 giây</span>
+        </div>
+      </div>
+
+      <!-- SECTION 1 -->
+      <div class="curriculum-builder-section" id="section-1">
+        <div class="section-header-row">
+          <div>
+            <h3 class="h3">Chương 1: Tổng quan và Thiết lập Môi trường</h3>
+            <span class="caption">4 bài giảng • Tổng thời lượng: 1h 15m</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-outline btn-sm" onclick="addNewLesson('section-1-lessons')">+ Thêm bài học
+              mới</button>
+          </div>
+        </div>
+
+        <div id="section-1-lessons">
+          <!-- Lesson 1 -->
+          <div class="lesson-upload-box">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-weight: 700; color: var(--text-heading);">1.1</span>
+              <div>
+                <strong style="font-size: 14px; color: var(--text-heading);">Giới thiệu kiến trúc nền tảng và tài liệu
+                  đặc tả</strong>
+                <div class="caption">video_01.mp4 (12:40) • 120 MB • Chuẩn HLS</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+                <input type="checkbox" checked accent-color="var(--primary)">
+                <span>Cho phép xem thử (Preview)</span>
+              </label>
+              <button class="btn btn-secondary btn-sm" onclick="showAttachModal('1.1')">📎 Đính kèm tài liệu
+                (PDF/ZIP)</button>
+              <button class="btn btn-outline btn-sm" onclick="triggerVideoUpload(this)">Thay video</button>
+            </div>
+          </div>
+
+          <!-- Lesson 2 -->
+          <div class="lesson-upload-box">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-weight: 700; color: var(--text-heading);">1.2</span>
+              <div>
+                <strong style="font-size: 14px; color: var(--text-heading);">Thiết lập Design System (Màu sắc,
+                  Typography, Grid)</strong>
+                <div class="caption">video_02.mp4 (18:25) • 210 MB • Chuẩn HLS</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+                <input type="checkbox" checked accent-color="var(--primary)">
+                <span>Cho phép xem thử (Preview)</span>
+              </label>
+              <button class="btn btn-secondary btn-sm" onclick="showAttachModal('1.2')">📎 Đính kèm tài liệu
+                (1)</button>
+              <button class="btn btn-outline btn-sm" onclick="triggerVideoUpload(this)">Thay video</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="curriculum-builder-section" id="section-2">
+        <div class="section-header-row">
+          <div>
+            <h3 class="h3">Chương 2: Xây dựng trình phát video và xử lý tiến độ học</h3>
+            <span class="caption">4 bài giảng • Tổng thời lượng: 2h 30m</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-outline btn-sm" onclick="addNewLesson('section-2-lessons')">+ Thêm bài học
+              mới</button>
+          </div>
+        </div>
+
+        <div id="section-2-lessons">
+          <div class="lesson-upload-box">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-weight: 700; color: var(--text-heading);">2.1</span>
+              <div>
+                <strong style="font-size: 14px; color: var(--text-heading);">Thiết kế Player Controls và thanh tua trực
+                  quan</strong>
+                <div class="caption">video_03.mp4 (25:10) • 310 MB • Chuẩn HLS</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+                <input type="checkbox" accent-color="var(--primary)">
+                <span>Cho phép xem thử</span>
+              </label>
+              <button class="btn btn-secondary btn-sm" onclick="showAttachModal('2.1')">📎 Đính kèm tài liệu</button>
+              <button class="btn btn-outline btn-sm" onclick="triggerVideoUpload(this)">Thay video</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ATTACH RESOURCE MODAL -->
+  <div class="modal-overlay" id="attach-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="h3" id="attach-modal-title">Đính kèm Tài nguyên Bài học</h3>
+        <button class="btn btn-secondary btn-sm" data-modal-close>✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="body-2" style="color: var(--text-secondary); margin-bottom: 16px;">
+          Hỗ trợ tải lên tài liệu học tập: Mã nguồn dự án (.zip), slide bài giảng (.pdf), hoặc tài liệu word (.docx).
+        </p>
+
+        <div
+          style="border: 2px dashed var(--border-color); border-radius: var(--radius-xl); padding: 24px; text-align: center; background: var(--bg-canvas); cursor: pointer;"
+          onclick="document.getElementById('attach-file-input').click()">
+          <div style="font-size: 28px; margin-bottom: 6px;">📂</div>
+          <strong style="color: var(--primary); font-size: 14px;">Bấm chọn tệp tài nguyên</strong>
+          <div class="caption">Giới hạn tối đa 500MB / file</div>
+        </div>
+        <input type="file" id="attach-file-input" style="display: none;" onchange="handleAttachFile(this)">
+
+        <div id="attached-files-list" style="margin-top: 16px;"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-modal-close>Đóng</button>
+        <button class="btn btn-primary"
+          onclick="closeModal('attach-modal'); showToast('Đã lưu tài nguyên đính kèm!', 'success')">Lưu tài
+          nguyên</button>
+      </div>
+    </div>
+  </div>
+
+  <input type="file" id="hidden-video-picker" accept="video/mp4,video/avi" style="display: none;"
+    onchange="handleVideoFile(this)">
+
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    let currentUploadTarget = null;
+
+    function triggerVideoUpload(btn) {
+      currentUploadTarget = btn;
+      document.getElementById('hidden-video-picker').click();
+    }
+
+    function handleVideoFile(input) {
+      const file = input.files[0];
+      if (!file) return;
+
+      // Check max size 2GB (UC10)
+      if (file.size > 2 * 1024 * 1024 * 1024) {
+        showToast('Lỗi tải video (UC10): Tệp vượt quá giới hạn 2GB!', 'error');
+        return;
+      }
+
+      const hud = document.getElementById('upload-progress-hud');
+      hud.style.display = 'block';
+      document.getElementById('upload-file-name').innerText = `Đang tải lên: ${file.name} (${(file.size / (1024 * 1024)).toFixed(1)} MB)`;
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 25;
+        document.getElementById('upload-fill').style.width = progress + '%';
+        document.getElementById('upload-percent-text').innerText = `Đã tải: ${progress}%`;
+        if (progress >= 100) {
+          clearInterval(interval);
+          document.getElementById('encoding-badge').innerText = '✓ Mã hóa HLS hoàn tất';
+          document.getElementById('encoding-badge').className = 'badge badge-success';
+          showToast('Tải lên và chuyển mã video thành công chuẩn HLS Web!', 'success');
+          setTimeout(() => hud.style.display = 'none', 2500);
+        }
+      }, 500);
+    }
+
+    function addNewLesson(containerId) {
+      const container = document.getElementById(containerId);
+      const div = document.createElement('div');
+      div.className = 'lesson-upload-box';
+      div.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-weight: 700; color: var(--text-heading);">+</span>
+          <div>
+            <strong style="font-size: 14px; color: var(--text-heading);">Bài học mới (Chưa có video)</strong>
+            <div class="caption">Vui lòng tải lên tệp video MP4/AVI</div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <button class="btn btn-primary btn-sm" onclick="triggerVideoUpload(this)">Tải video lên</button>
+          <button class="btn btn-secondary btn-sm" onclick="this.closest('.lesson-upload-box').remove()">Xóa</button>
+        </div>
+      `;
+      container.appendChild(div);
+      showToast('Đã thêm bài học mới. Hãy tải video lên!', 'info');
+    }
+
+    function addNewSection() {
+      const main = document.querySelector('.dashboard-main');
+      const count = document.querySelectorAll('.curriculum-builder-section').length + 1;
+      const section = document.createElement('div');
+      section.className = 'curriculum-builder-section';
+      section.innerHTML = `
+        <div class="section-header-row">
+          <div>
+            <h3 class="h3">Chương ${count}: Chương mới bổ sung</h3>
+            <span class="caption">0 bài giảng</span>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="addNewLesson('sec-${count}-lessons')">+ Thêm bài học</button>
+        </div>
+        <div id="sec-${count}-lessons"></div>
+      `;
+      main.insertBefore(section, document.getElementById('upload-progress-hud').nextSibling);
+      showToast('Đã tạo thêm Chương ' + count, 'success');
+    }
+
+    function showAttachModal(lessonCode) {
+      document.getElementById('attach-modal-title').innerText = `Đính kèm tài nguyên cho Bài ${lessonCode}`;
+      openModal('attach-modal');
+    }
+
+    function handleAttachFile(input) {
+      const file = input.files[0];
+      if (file) {
+        document.getElementById('attached-files-list').innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #fff; border: 1px solid var(--border-color); border-radius: 8px;">
+            <span style="font-weight: 600; font-size: 13px;">📄 ${file.name}</span>
+            <span class="badge badge-success">Sẵn sàng</span>
+          </div>
+        `;
+        showToast('Đã chọn tệp: ' + file.name, 'info');
+      }
+    }
+
+    function submitCurriculumToApproval() {
+      showToast('Đã cập nhật toàn bộ cấu trúc đề cương và video!', 'success');
+      setTimeout(() => {
+        window.location.href = 'courses.html';
+      }, 1000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id') || 'c-101';
+      const coursesMap = {
+        'c-101': 'Xây dựng Web hiện đại toàn diện với HTML5, CSS3 và Vanilla JS',
+        'c-102': 'Thiết kế giao diện UI/UX chuyên nghiệp với Figma & Tailwind CSS',
+        'c-103': 'Kiến trúc Microservices với Node.js & Docker',
+        'c-104': 'Lập trình Python từ cơ bản đến ứng dụng Data Science'
+      };
+      const titleElem = document.getElementById('course-title-display');
+      if (titleElem && coursesMap[id]) {
+        titleElem.textContent = `${coursesMap[id]} (ID: ${id.toUpperCase()})`;
+      }
+      const backBtn = document.getElementById('btn-back-detail');
+      if (backBtn) {
+        backBtn.href = `course-detail.html?id=${id}`;
+      }
+    });
+  </script>
+</body>
+
+</html>

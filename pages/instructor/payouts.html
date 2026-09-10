@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhận Thanh Toán Khóa Học (UC13) | Giáo Viên</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="brand-logo">
+          <div class="logo-icon" style="width: 34px; height: 34px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 18px;">Giáo Viên<span>.</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Dashboard tổng quan
+        </a>
+        <a href="courses.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Quản lý khóa học
+        </a>
+        <a href="resources.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <polyline points="12 11 12 17 15 14"></polyline>
+          </svg>
+          Thư viện tài nguyên
+        </a>
+        <a href="students.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          Quản lý học viên
+        </a>
+        <a href="analytics.html" class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Báo cáo thống kê
+        </a>
+        <a href="payouts.html" class="sidebar-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          Nhận thanh toán
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="dashboard-topbar">
+        <nav class="breadcrumb-nav">
+          <a href="../../index.html">Hub điều hướng</a>
+          <span class="separator">/</span>
+          <a href="dashboard.html">Giáo viên</a>
+          <span class="separator">/</span>
+          <span class="current">Nhận thanh toán</span>
+        </nav>
+        <div class="topbar-actions">
+          <span class="badge badge-primary" style="font-size: 12px; background: #CCFBF1; color: #0D9488;">👨‍🏫 Giảng viên</span>
+          <a href="../../index.html" class="btn btn-outline btn-sm">Về Hub Portal</a>
+        </div>
+      </header>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+        <div>
+          <h1 class="h2" style="margin-top: 6px;">Doanh Thu & Nhận Thanh Toán</h1>
+          <p class="body-2" style="color: var(--text-secondary);">Quản lý số dư khả dụng và yêu cầu rút tiền về tài
+            khoản ngân hàng thụ hưởng</p>
+        </div>
+      </div>
+      <!-- 3 FINANCIAL SUMMARY CARDS -->
+      <div class="grid-12" style="margin-bottom: 28px;">
+        <!-- Card 1: Available Balance -->
+        <div class="col-4">
+          <div class="card" style="border-left: 4px solid var(--primary);">
+            <div class="caption" style="color: var(--text-secondary); margin-bottom: 6px;">Số dư khả dụng (Có thể rút)
+            </div>
+            <div style="font-size: 32px; font-weight: 800; color: var(--primary);" id="avail-balance">18.450.000 đ</div>
+            <div class="caption" style="color: var(--status-success); margin-top: 6px;">Đủ điều kiện nhận thanh toán
+              (&ge; 500.000 đ)</div>
+          </div>
+        </div>
+
+        <!-- Card 2: Pending Processing -->
+        <div class="col-4">
+          <div class="card" style="border-left: 4px solid var(--status-warning);">
+            <div class="caption" style="color: var(--text-secondary); margin-bottom: 6px;">Đang xử lý / Giữ hoàn tiền
+            </div>
+            <div style="font-size: 32px; font-weight: 800; color: var(--text-heading);">4.800.000 đ</div>
+            <div class="caption" style="color: var(--text-muted); margin-top: 6px;">Giải ngân sau 7 ngày kể từ lúc mua
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Total Withdrawn -->
+        <div class="col-4">
+          <div class="card" style="border-left: 4px solid var(--status-success);">
+            <div class="caption" style="color: var(--text-secondary); margin-bottom: 6px;">Tổng doanh thu đã nhận</div>
+            <div style="font-size: 32px; font-weight: 800; color: var(--text-heading);">105.200.000 đ</div>
+            <div class="caption" style="color: var(--text-muted); margin-top: 6px;">Tổng cộng qua 12 đợt thanh toán
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WITHDRAWAL FORM & BANK INFO -->
+      <div class="grid-12" style="margin-bottom: 32px;">
+
+        <!-- Payout Request Form -->
+        <div class="col-6">
+          <div class="card">
+            <h3 class="h3" style="margin-bottom: 16px;">Gửi yêu cầu nhận thanh toán (Rút tiền)</h3>
+
+            <form onsubmit="handlePayoutRequest(event)">
+              <div class="form-group">
+                <label class="form-label">Số tiền yêu cầu rút (VNĐ) <span class="required">*</span></label>
+                <input type="number" id="payout-amount" class="form-control" placeholder="Tối thiểu 500.000 VNĐ"
+                  value="5000000" min="500000" required>
+                <div id="amount-error" class="form-feedback-error" style="display: none;">Số tiền yêu cầu rút vượt quá
+                  số dư khả dụng hoặc dưới 500.000 đ!</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Chọn tài khoản nhận tiền <span class="required">*</span></label>
+                <select class="form-control" id="payout-bank-select">
+                  <option value="vcb">Vietcombank - 0071001234567 (NGUYEN VAN AN)</option>
+                  <option value="tcb">Techcombank - 1903456789012 (NGUYEN VAN AN)</option>
+                  <option value="new">+ Thêm tài khoản ngân hàng mới...</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Ghi chú giao dịch</label>
+                <input type="text" class="form-control" placeholder="Rút doanh thu đợt 1 tháng 09/2026">
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Gửi yêu cầu thanh toán
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Payout Policies -->
+        <div class="col-6">
+          <div class="card">
+            <h3 class="h3" style="margin-bottom: 16px;">Quy định thanh toán giảng viên</h3>
+            <ul style="display: flex; flex-direction: column; gap: 14px; font-size: 14px; color: var(--text-body);">
+              <li style="display: flex; gap: 10px;">
+                <span style="color: var(--primary); font-weight: 800;">1.</span>
+                <span><strong>Hạn mức rút tối thiểu:</strong> Mỗi lần yêu cầu thanh toán tối thiểu là <strong>500.000
+                    VNĐ</strong>.</span>
+              </li>
+              <li style="display: flex; gap: 10px;">
+                <span style="color: var(--primary); font-weight: 800;">2.</span>
+                <span><strong>Thời gian xử lý:</strong> Hệ thống tự động phê duyệt và chuyển khoản trong vòng 24 - 48
+                  giờ làm việc.</span>
+              </li>
+              <li style="display: flex; gap: 10px;">
+                <span style="color: var(--primary); font-weight: 800;">3.</span>
+                <span><strong>Chính sách hoàn tiền:</strong> Doanh thu các khóa học mới phát sinh sẽ được giữ trong 7
+                  ngày theo chính sách cam kết hoàn tiền cho học viên.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TRANSACTION HISTORY TABLE -->
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <div style="padding: 20px 24px; border-bottom: 1px solid var(--border-color);">
+          <h3 class="h3">Lịch sử các yêu cầu thanh toán</h3>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mã giao dịch</th>
+                <th>Ngày yêu cầu</th>
+                <th>Số tiền</th>
+                <th>Tài khoản nhận</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody id="payout-history-body">
+              <tr>
+                <td><strong>#PAY-2026-0912</strong></td>
+                <td>01/09/2026</td>
+                <td><strong style="color: var(--text-heading);">12.000.000 đ</strong></td>
+                <td>VCB - 0071001234567</td>
+                <td><span class="badge badge-success">Đã hoàn tất</span></td>
+              </tr>
+              <tr>
+                <td><strong>#PAY-2026-0825</strong></td>
+                <td>15/08/2026</td>
+                <td><strong style="color: var(--text-heading);">15.500.000 đ</strong></td>
+                <td>VCB - 0071001234567</td>
+                <td><span class="badge badge-success">Đã hoàn tất</span></td>
+              </tr>
+              <tr>
+                <td><strong>#PAY-2026-0718</strong></td>
+                <td>01/08/2026</td>
+                <td><strong style="color: var(--text-heading);">8.200.000 đ</strong></td>
+                <td>TCB - 1903456789012</td>
+                <td><span class="badge badge-success">Đã hoàn tất</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- PAGINATION CONTAINER -->
+        <div class="pagination-container">
+          <div class="pagination-info">
+            Hiển thị <strong>1 - 10</strong> trên tổng số <strong>12</strong> giao dịch
+          </div>
+          <ul class="pagination">
+            <li class="page-item disabled"><button class="page-link">‹ Trước</button></li>
+            <li class="page-item active"><button class="page-link">1</button></li>
+            <li class="page-item"><button class="page-link">2</button></li>
+            <li class="page-item"><button class="page-link">Sau ›</button></li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script>
+    let availableBal = 18450000;
+
+    function handlePayoutRequest(e) {
+      e.preventDefault();
+      const amount = parseInt(document.getElementById('payout-amount').value, 10);
+      const err = document.getElementById('amount-error');
+
+      if (amount < 500000 || amount > availableBal) {
+        err.style.display = 'block';
+        showToast('Số tiền rút không hợp lệ (tối thiểu 500.000 đ và không vượt quá số dư)!', 'error');
+        return;
+      }
+
+      err.style.display = 'none';
+      availableBal -= amount;
+      document.getElementById('avail-balance').innerText = availableBal.toLocaleString('vi-VN') + ' đ';
+
+      // Add to table
+      const tbody = document.getElementById('payout-history-body');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>#PAY-2026-0999</strong></td>
+        <td>Hôm nay</td>
+        <td><strong style="color: var(--text-heading);">${amount.toLocaleString('vi-VN')} đ</strong></td>
+        <td>Vietcombank</td>
+        <td><span class="badge badge-warning">Đang xử lý</span></td>
+      `;
+      tbody.insertBefore(tr, tbody.firstChild);
+
+      showToast('Đã gửi yêu cầu nhận thanh toán thành công! Hệ thống đang xử lý.', 'success');
+    }
+  </script>
+</body>
+
+</html>
