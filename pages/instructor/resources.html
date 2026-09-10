@@ -132,12 +132,23 @@
         <div>
           <h1 class="h2" style="margin-top: 6px;">Thư Viện Tài Nguyên Tập Trung</h1>
           <p class="body-2" style="color: var(--text-secondary);">
-            Quản lý toàn bộ tệp video bài giảng, tệp tài liệu PDF và mã nguồn đã tải lên thuộc tất cả các khóa học
+            Quản lý toàn bộ tệp video bài giảng, tệp tài liệu PDF và mã nguồn thuộc các bài học trong khóa học
           </p>
         </div>
-        <button class="btn btn-primary" onclick="showUploadModal()">
-          + Tải lên tệp mới
-        </button>
+        <a href="courses.html" class="btn btn-primary">
+          Đi tới Quản lý khóa học →
+        </a>
+      </div>
+
+      <!-- INSTRUCTION ALERT CALLOUT -->
+      <div class="card" style="margin-bottom: 24px; padding: 14px 18px; background: #F8FAFC; border-left: 4px solid var(--primary); display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 20px;">ℹ️</span>
+          <span style="font-size: 13px; color: var(--text-secondary);">
+            <strong>Hướng dẫn đính kèm tài nguyên:</strong> Để đính kèm tài nguyên mới vào bài học, vui lòng truy cập <strong>Quản lý khóa học</strong> → chọn khóa học → <strong>Đề cương & Video</strong> → chọn bài học → <strong>Đính kèm tài nguyên</strong>.
+          </span>
+        </div>
+        <a href="courses.html" class="btn btn-outline btn-sm" style="white-space: nowrap;">Đến Quản lý khóa học</a>
       </div>
 
       <!-- STORAGE KPI CARDS -->
@@ -210,7 +221,6 @@
               <option value="c-101">Xây dựng Web hiện đại với HTML5/CSS3/JS</option>
               <option value="c-102">Thiết kế UI/UX chuẩn Figma & Design System</option>
               <option value="c-103">Kiến trúc Microservices với NestJS và Kafka</option>
-              <option value="unused">Tệp chưa gắn vào bài học (Tài nguyên tự do)</option>
             </select>
 
             <div style="width: 240px;">
@@ -337,21 +347,21 @@
                 </td>
               </tr>
 
-              <tr data-type="pdf" data-course="unused">
+              <tr data-type="pdf" data-course="c-101">
                 <td><div class="file-icon-badge icon-pdf">📄</div></td>
                 <td>
-                  <strong style="color: var(--text-heading);">quy_truan_code_clean_architecture.pdf</strong>
-                  <div class="caption">Tài liệu tham khảo tự do</div>
+                  <strong style="color: var(--text-heading);">quy_chuan_code_clean_architecture.pdf</strong>
+                  <div class="caption">Định dạng Adobe PDF Document</div>
                 </td>
                 <td><span class="badge badge-danger">Tài liệu PDF</span></td>
-                <td><span class="badge badge-secondary">Tệp tự do (Chưa gắn)</span></td>
-                <td>--</td>
+                <td><a href="course-detail.html?id=c-101" style="color: var(--primary); text-decoration: none; font-weight: 600;">HTML5 & Vanilla JS</a></td>
+                <td>Bài 3.2: Clean Code & Architecture</td>
                 <td><strong>8.6 MB</strong></td>
                 <td>07/09/2026</td>
                 <td>
                   <div style="display: flex; gap: 6px;">
-                    <button class="btn btn-outline btn-sm" onclick="previewResource('quy_truan_code_clean_architecture.pdf')">Xem</button>
-                    <button class="btn btn-secondary btn-sm" onclick="downloadFile('quy_truan_code_clean_architecture.pdf')">Tải</button>
+                    <button class="btn btn-outline btn-sm" onclick="previewResource('quy_chuan_code_clean_architecture.pdf')">Xem</button>
+                    <button class="btn btn-secondary btn-sm" onclick="downloadFile('quy_chuan_code_clean_architecture.pdf')">Tải</button>
                     <button class="btn btn-danger btn-sm" onclick="deleteResource(this)">Xóa</button>
                   </div>
                 </td>
@@ -376,37 +386,6 @@
       </div>
 
     </main>
-  </div>
-
-  <!-- UPLOAD MODAL -->
-  <div class="modal-overlay" id="upload-modal">
-    <div class="modal-container" style="max-width: 520px;">
-      <div class="modal-header">
-        <h3 class="h3">Tải lên tệp tài nguyên mới vào kho</h3>
-        <button class="btn btn-secondary btn-sm" data-modal-close>✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label class="form-label">Chọn khóa học áp dụng (Tùy chọn)</label>
-          <select class="form-control">
-            <option value="">Tài nguyên tự do (Chưa gắn khóa học)</option>
-            <option value="c-101">Xây dựng Web hiện đại toàn diện với HTML5/CSS3/JS</option>
-            <option value="c-102">Thiết kế giao diện UI/UX chuẩn Figma</option>
-            <option value="c-103">Kiến trúc Microservices với NestJS và Kafka</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Chọn tệp từ máy tính (Video MP4, PDF, ZIP, Code)</label>
-          <input type="file" class="form-control">
-        </div>
-        <div class="caption">Hỗ trợ các định dạng .mp4, .webm, .pdf, .zip, .rar. Dung lượng video tối đa 4GB/tệp, tệp tài liệu tối đa 50MB.</div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-modal-close>Hủy</button>
-        <button class="btn btn-primary" onclick="closeModal('upload-modal'); showToast('Đã tải lên tệp tài nguyên mới thành công vào kho!', 'success');">Tải lên ngay</button>
-      </div>
-    </div>
   </div>
 
   <script src="../../assets/js/app.js"></script>
@@ -446,10 +425,6 @@
           row.style.display = 'none';
         }
       });
-    }
-
-    function showUploadModal() {
-      openModal('upload-modal');
     }
 
     function previewResource(filename) {
